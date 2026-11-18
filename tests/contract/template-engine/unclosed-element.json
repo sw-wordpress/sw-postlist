@@ -1,0 +1,17 @@
+{
+  "name": "unclosed-element",
+  "type": "template-engine",
+  "input": {
+    "template": "<div><p>a</div>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "mismatched_end_tag",
+      "unclosed_element"
+    ]
+  }
+}

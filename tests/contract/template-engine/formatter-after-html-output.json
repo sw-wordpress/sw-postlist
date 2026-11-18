@@ -1,0 +1,16 @@
+{
+  "name": "formatter-after-html-output",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|nl2br|upper}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "incompatible_formatter"
+    ]
+  }
+}

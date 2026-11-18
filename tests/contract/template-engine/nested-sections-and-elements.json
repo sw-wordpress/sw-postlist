@@ -1,0 +1,17 @@
+{
+  "name": "nested-sections-and-elements",
+  "type": "template-engine",
+  "input": {
+    "template": "<ul>{{#entry.featured}}<li>{{#entry.excerpt}}{{entry.excerpt}}{{/entry.excerpt}}</li>{{/entry.featured}}</ul>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.featured": true,
+      "entry.excerpt": "x"
+    }
+  },
+  "expect": {
+    "html": "<ul><li>x</li></ul>"
+  }
+}

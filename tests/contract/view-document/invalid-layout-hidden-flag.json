@@ -1,0 +1,63 @@
+{
+  "name": "invalid-layout-hidden-flag",
+  "type": "view-document",
+  "input": {
+    "schema_version": 1,
+    "title": "News",
+    "source": "post:post",
+    "query": {
+      "taxonomies": [
+        {
+          "taxonomy": "category",
+          "terms": [
+            3,
+            4
+          ],
+          "operator": "in"
+        }
+      ],
+      "authors": [
+        2
+      ],
+      "date": {
+        "after": "2026-01-01",
+        "before": null
+      },
+      "meta": [
+        {
+          "key": "featured",
+          "value": "1",
+          "compare": "="
+        }
+      ],
+      "include": [],
+      "exclude": [
+        9
+      ],
+      "per_page": 10,
+      "offset": 1,
+      "orderby": "meta_num",
+      "order": "asc",
+      "order_meta_key": "rank",
+      "context": "none"
+    },
+    "layout": {
+      "type": "grid",
+      "hidden": {
+        "mobile": "yes"
+      }
+    },
+    "pagination": {
+      "mode": "classic"
+    },
+    "templates": {
+      "container": null,
+      "entry": 5
+    }
+  },
+  "expect": {
+    "errors": [
+      "layout_option_invalid"
+    ]
+  }
+}

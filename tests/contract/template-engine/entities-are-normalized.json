@@ -1,0 +1,14 @@
+{
+  "name": "entities-are-normalized",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>&copy; 2026 &amp; &lt;b&gt; &#65; &foo; \"q\" 's'</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "<p>© 2026 &amp; &lt;b&gt; A &amp;foo; &quot;q&quot; &apos;s&apos;</p>"
+  }
+}

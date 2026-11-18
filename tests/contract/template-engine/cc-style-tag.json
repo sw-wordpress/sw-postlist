@@ -1,0 +1,16 @@
+{
+  "name": "cc-style-tag",
+  "type": "template-engine",
+  "input": {
+    "template": "<style>p{}</style>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "disallowed_tag"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<ruleset name="sw-postlist">
+    <description>WordPress Coding Standards for all own PHP code with the documented PSR-4 exception (CODE-STYLE.md 2.1).</description>
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+    <arg name="cache" value=".phpcs.cache"/>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/vendor-prefixed/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <!-- PHPStan-only stubs mirror foreign APIs with their original naming. -->
+    <exclude-pattern>*/tests/phpstan/*</exclude-pattern>
+    <!-- Doubles of WordPress functions mirror the original names and signatures. -->
+    <exclude-pattern>*/tests/Support/wp-function-stubs.php</exclude-pattern>
+    <!-- Browser E2E setup scripts bootstrap a throw-away WordPress and are not part of the plugin. -->
+    <exclude-pattern>*/tests/E2E/*</exclude-pattern>
+    <exclude-pattern>*/tests/wp/*</exclude-pattern>
+    <!-- Standalone CLI report tools of the coverage gate, never loaded by WordPress. -->
+    <exclude-pattern>*/tests/coverage/*</exclude-pattern>
+
+    <file>sw-postlist.php</file>
+    <file>uninstall.php</file>
+    <file>src</file>
+    <file>tests</file>
+
+    <config name="minimum_wp_version" value="6.5"/>
+    <config name="testVersion" value="8.2-"/>
+
+    <rule ref="WordPress">
+        <!-- Documented project decision (CODE-STYLE 2.1): PSR-4 class names/files (PascalCase). -->
+        <exclude name="WordPress.Files.FileName"/>
+        <exclude name="Universal.Operators.DisallowShortTernary"/>
+        <exclude name="Universal.NamingConventions.NoReservedKeywordParameterNames"/>
+        <!-- Typed signatures carry the contract; docblocks are written where the native type is not enough. -->
+        <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ParamNameNoMatch"/>
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectTypeHint"/>
+        <exclude name="Squiz.Commenting.FunctionCommentThrowTag.Missing"/>
+        <exclude name="Squiz.Commenting.ClassComment.Missing"/>
+        <exclude name="Squiz.Commenting.VariableComment.Missing"/>
+        <exclude name="Squiz.Commenting.FileComment.SpacingAfterOpen"/>
+        <exclude name="Generic.Commenting.DocComment.MissingShort"/>
+        <!-- Exception messages are plain text mapped to JSON by the REST layer, never echoed as HTML. -->
+        <exclude name="WordPress.Security.EscapeOutput.ExceptionNotEscaped"/>
+    </rule>
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="sw-postlist"/>
+            </property>
+        </properties>
+    </rule>
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="sw_postlist"/>
+                <element value="SW\Postlist"/>
+                <element value="SW_POSTLIST"/>
+            </property>
+        </properties>
+    </rule>
+    <rule ref="PHPCompatibilityWP"/>
+
+    <!-- Tests: namespaced PascalCase test classes without global prefixes; test doubles and fixtures echo nothing. -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.PHP.DevelopmentFunctions">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.Security.EscapeOutput">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Commenting.FileComment">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+    <rule ref="Universal.Files.SeparateFunctionsFromOO">
+        <exclude-pattern>tests/*</exclude-pattern>
+    </rule>
+</ruleset>

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "dark-overlay",
+  "title": "Dark overlay cards",
+  "description": "Dark tiles with the image as background and the text on a gradient. The first entry spans the full width. Without an image a purple gradient is used.",
+  "layout": {
+    "type": "grid",
+    "columns": {
+      "desktop": 2,
+      "tablet": 2,
+      "mobile": 1
+    },
+    "gap": {
+      "desktop": 18,
+      "tablet": 16,
+      "mobile": 14
+    },
+    "aspect_ratio": "16/9"
+  },
+  "container": {
+    "html": "<section class=\"dk\"><div class=\"swp-grid\">{{view.entries}}</div>{{view.navigation}}</section>",
+    "css": ".dk{container-type:inline-size}.dk{background:#0d0b14;padding:18px;border-radius:18px}.dk .swp-item:first-child{grid-column:1/-1}.dk .swp-item:first-child .dk-card{min-height:340px}.dk .swp-item:first-child .dk-card__title{font-size:1.9em}.dk .swp-pagination__link{background:#1b1730;border-color:#2d2748;color:#e9e6f5}.dk .swp-pagination__link.is-current{background:#7c5cff;color:#fff}@container (max-width:560px){.dk .swp-grid{grid-template-columns:minmax(0,1fr)}.dk .swp-item:first-child .dk-card{min-height:260px}}"
+  },
+  "entry": {
+    "html": "<article class=\"dk-card\">{{#entry.image}}<span class=\"dk-card__img\">{{entry.image|image:\"large\"}}</span>{{/entry.image}}<div class=\"dk-card__shade\"></div><div class=\"dk-card__content\">{{entry.terms.category|chips}}<h3 class=\"dk-card__title\"><a href=\"{{entry.url}}\">{{entry.title}}</a></h3>{{#entry.excerpt}}<p class=\"dk-card__text\">{{entry.excerpt|words:22}}</p>{{/entry.excerpt}}<p class=\"dk-card__meta\"><span>{{entry.author.name}}</span> / {{entry.date|date:\"d.m.Y\"}}</p></div></article>",
+    "css": ".dk-card{position:relative;display:flex;align-items:flex-end;min-height:230px;height:100%;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#5b3df5,#2a1b7a 55%,#e0795a);color:#fff;font-family:system-ui,sans-serif}.dk-card__img,.dk-card__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.dk-card__shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,20,.92),rgba(10,8,20,.25) 60%,rgba(10,8,20,0))}.dk-card__content{position:relative;padding:20px 22px;width:100%}.dk-card .swp-chip{display:inline-block;margin-bottom:10px;padding:3px 12px;border-radius:999px;background:rgba(10,8,20,.7);border:1px solid rgba(255,255,255,.25);font-size:.72em;font-weight:600}.dk-card__title{margin:0 0 6px;font-size:1.2em;line-height:1.2;font-weight:800}.dk-card__title a{color:#fff;text-decoration:none}.dk-card__text{margin:0 0 8px;font-size:.88em;line-height:1.45;color:#d6d2e6}.dk-card__meta{margin:0;font-size:.8em;color:#bcb7d1}.dk-card__meta span{color:#c9f05a;font-weight:700}"
+  },
+  "builder": null
+}

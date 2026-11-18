@@ -1,0 +1,17 @@
+{
+  "name": "cc-attribute-context-is-escaped",
+  "type": "template-engine",
+  "input": {
+    "template": "<span title=\"{{entry.title}}\" class=\"e {{#entry.featured}}allday{{/entry.featured}}\">x</span>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {
+      "entry.title": "\" onmouseover=\"alert(1)",
+      "entry.featured": true
+    }
+  },
+  "expect": {
+    "html": "<span title=\"&quot; onmouseover=&quot;alert(1)\" class=\"e allday\">x</span>"
+  }
+}

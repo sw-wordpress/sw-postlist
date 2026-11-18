@@ -1,0 +1,16 @@
+{
+  "name": "css-unbalanced",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>x</p>",
+    "css": ".a{color:red",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_css"
+    ]
+  }
+}

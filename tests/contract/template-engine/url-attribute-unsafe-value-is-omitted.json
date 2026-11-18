@@ -1,0 +1,16 @@
+{
+  "name": "url-attribute-unsafe-value-is-omitted",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"{{entry.url}}\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.url": "javascript:alert(1)"
+    }
+  },
+  "expect": {
+    "html": "<a>x</a>"
+  }
+}

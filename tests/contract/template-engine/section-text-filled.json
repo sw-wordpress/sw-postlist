@@ -1,0 +1,16 @@
+{
+  "name": "section-text-filled",
+  "type": "template-engine",
+  "input": {
+    "template": "{{#entry.excerpt}}[{{entry.excerpt}}]{{/entry.excerpt}}{{^entry.excerpt}}none{{/entry.excerpt}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.excerpt": "Hi & bye"
+    }
+  },
+  "expect": {
+    "html": "[Hi &amp; bye]"
+  }
+}

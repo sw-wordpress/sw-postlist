@@ -1,0 +1,374 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/sw-postlist/view-document.v1.schema.json",
+  "title": "SW Postlist view document, schema version 1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "title",
+    "source",
+    "query",
+    "layout",
+    "pagination",
+    "templates"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]+(?::[a-z0-9_-]+)*$",
+      "not": {
+        "enum": [
+          "any",
+          "post:any"
+        ]
+      },
+      "description": "Exactly one entry source ID."
+    },
+    "query": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "taxonomies": {
+          "type": "array",
+          "maxItems": 20,
+          "items": {
+            "type": "object",
+            "required": [
+              "taxonomy",
+              "terms"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "taxonomy": {
+                "type": "string",
+                "pattern": "^[a-z0-9_-]{1,32}$"
+              },
+              "terms": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 500,
+                "items": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "operator": {
+                "enum": [
+                  "in",
+                  "not_in",
+                  "and"
+                ]
+              }
+            }
+          }
+        },
+        "authors": {
+          "$ref": "#/$defs/id_list"
+        },
+        "date": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "after": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "before": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            }
+          }
+        },
+        "meta": {
+          "type": "array",
+          "maxItems": 10,
+          "items": {
+            "type": "object",
+            "required": [
+              "key"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 191
+              },
+              "value": {
+                "type": "string",
+                "maxLength": 500
+              },
+              "compare": {
+                "enum": [
+                  "=",
+                  "!=",
+                  ">",
+                  ">=",
+                  "<",
+                  "<=",
+                  "LIKE",
+                  "EXISTS",
+                  "NOT EXISTS"
+                ]
+              }
+            }
+          }
+        },
+        "include": {
+          "$ref": "#/$defs/id_list"
+        },
+        "exclude": {
+          "$ref": "#/$defs/id_list"
+        },
+        "per_page": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "orderby": {
+          "enum": [
+            "date",
+            "modified",
+            "title",
+            "menu_order",
+            "id",
+            "meta_num",
+            "meta_text"
+          ]
+        },
+        "order": {
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        },
+        "order_meta_key": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 191
+        },
+        "context": {
+          "enum": [
+            "none",
+            "same_category",
+            "same_tags",
+            "same_author",
+            "archive",
+            "search"
+          ]
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "grid and list in 1.0; extended by sw_postlist_layouts."
+        }
+      },
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "grid",
+              "list"
+            ]
+          }
+        }
+      },
+      "then": {
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "columns": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "desktop": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 6
+              },
+              "tablet": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 6
+              },
+              "mobile": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 6
+              }
+            }
+          },
+          "gap": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "desktop": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 64
+              },
+              "tablet": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 64
+              },
+              "mobile": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 64
+              }
+            }
+          },
+          "font_size": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "desktop": {
+                "type": "integer",
+                "minimum": 50,
+                "maximum": 200
+              },
+              "tablet": {
+                "type": "integer",
+                "minimum": 50,
+                "maximum": 200
+              },
+              "mobile": {
+                "type": "integer",
+                "minimum": 50,
+                "maximum": 200
+              }
+            }
+          },
+          "hidden": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "desktop": {
+                "type": "boolean"
+              },
+              "tablet": {
+                "type": "boolean"
+              },
+              "mobile": {
+                "type": "boolean"
+              }
+            }
+          },
+          "aspect_ratio": {
+            "enum": [
+              "auto",
+              "1/1",
+              "4/3",
+              "3/2",
+              "16/9",
+              "2/1"
+            ]
+          },
+          "accent": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-z0-9-]{1,40}$"
+          }
+        }
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "classic",
+            "none",
+            "ajax",
+            "load_more",
+            "infinite"
+          ]
+        }
+      }
+    },
+    "templates": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "container": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "entry": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        }
+      }
+    },
+    "filters": {
+      "description": "Optional visitor filters. The options of each filter depend on its type and are validated against the registered filter type schemas.",
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "pattern": "^[a-z0-9_-]{1,40}$"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id_list": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "formatter-esc-url-for-text-meta",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"{{entry.meta.subtitle|esc_url}}\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.meta.subtitle": "https://x.test/"
+    }
+  },
+  "expect": {
+    "html": "<a href=\"https://x.test/\">x</a>"
+  }
+}

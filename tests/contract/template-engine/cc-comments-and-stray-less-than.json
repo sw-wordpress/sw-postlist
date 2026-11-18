@@ -1,0 +1,14 @@
+{
+  "name": "cc-comments-and-stray-less-than",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>a <!-- secret --> < b</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "html": "<p>a  &lt; b</p>"
+  }
+}

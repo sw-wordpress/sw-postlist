@@ -1,0 +1,16 @@
+{
+  "name": "cc-function-call-syntax",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>{{entry.title(1)}}</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_placeholder"
+    ]
+  }
+}

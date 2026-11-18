@@ -1,0 +1,16 @@
+{
+  "name": "url-attribute-with-mixed-content",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"/x/{{entry.title}}\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "url_attribute_mixed"
+    ]
+  }
+}

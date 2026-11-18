@@ -1,0 +1,15 @@
+{
+  "name": "css-is-scoped",
+  "type": "template-engine",
+  "input": {
+    "template": "<p class=\"a\">x</p>",
+    "css": "/* c */ .a, .b > i { color: red } body { margin: 0 } @media (min-width:600px){ .a{display:none} } @keyframes k{from{opacity:0}to{opacity:1}}",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "<p class=\"a\">x</p>",
+    "css": ".swp-tpl-7 .a, .swp-tpl-7 .b > i{color: red}\n.swp-tpl-7{margin: 0}\n@media (min-width:600px){.swp-tpl-7 .a{display:none}}\n@keyframes k{from{opacity:0}to{opacity:1}}"
+  }
+}

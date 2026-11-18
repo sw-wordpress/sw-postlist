@@ -1,0 +1,16 @@
+{
+  "name": "cc-html-in-attribute",
+  "type": "template-engine",
+  "input": {
+    "template": "<p title=\"{{entry.body_html}}\">a</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "html_only_in_text"
+    ]
+  }
+}

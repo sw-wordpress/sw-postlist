@@ -1,0 +1,76 @@
+{
+    "name": "sw/sw-postlist",
+    "description": "SW Postlist - configurable views of posts, pages and custom post types.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.2",
+        "ext-json": "*",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^11.0",
+        "squizlabs/php_codesniffer": "^3.10",
+        "szepeviktor/phpstan-wordpress": "^2.0",
+        "wp-coding-standards/wpcs": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "SW\\Postlist\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SW\\Postlist\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "mozart": {
+            "dep_namespace": "SW\\Postlist\\Dependencies\\",
+            "dep_directory": "/vendor-prefixed/",
+            "classmap_directory": "/vendor-prefixed/",
+            "classmap_prefix": "SWPostlist_",
+            "constant_prefix": "SWPOSTLIST_",
+            "functions_prefix": "swpostlist_",
+            "generate_autoloader": true,
+            "delete_vendor_directories": true
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
+        },
+        "platform": {
+            "php": "8.2.0"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --testsuite unit,integration",
+        "stan": "phpstan analyse --memory-limit=1G",
+        "cs": "phpcs --runtime-set ignore_warnings_on_exit 1",
+        "cs:fix": "phpcbf",
+        "check": [
+            "@cs",
+            "@stan",
+            "@test"
+        ],
+        "test:wp": "cd tests/wp && vendor/bin/phpunit -c phpunit.xml.dist && WP_TESTS_MULTISITE=1 vendor/bin/phpunit -c phpunit.xml.dist --group ms-required",
+        "test:coverage": [
+            "@php -r \"@mkdir( 'coverage' );\"",
+            "XDEBUG_MODE=coverage phpunit --testsuite unit,integration --coverage-clover coverage/unit.xml",
+            "cd tests/wp && XDEBUG_MODE=coverage vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover ../../coverage/wp.xml",
+            "cd tests/wp && WP_TESTS_MULTISITE=1 XDEBUG_MODE=coverage vendor/bin/phpunit -c phpunit.xml.dist --group ms-required --coverage-clover ../../coverage/wp-ms.xml",
+            "@php tests/coverage/merge.php coverage/unit.xml coverage/wp.xml coverage/wp-ms.xml",
+            "@php tests/coverage/check.php"
+        ],
+        "test:wp65": "cd tests/wp && SWP_WP_VENDOR=vendor-65 vendor-65/bin/phpunit -c phpunit.xml.dist && SWP_WP_VENDOR=vendor-65 WP_TESTS_MULTISITE=1 vendor-65/bin/phpunit -c phpunit.xml.dist --group ms-required",
+        "test:performance": "cd tests/wp && XDEBUG_MODE=off vendor/bin/phpunit -c ../Performance/phpunit.xml"
+    }
+}

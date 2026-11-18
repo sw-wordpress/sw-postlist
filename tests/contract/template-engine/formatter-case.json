@@ -1,0 +1,16 @@
+{
+  "name": "formatter-case",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|upper}}|{{entry.title|lower}}|{{entry.title|capitalize}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.title": "hello wORLD"
+    }
+  },
+  "expect": {
+    "html": "HELLO WORLD|hello world|Hello WORLD"
+  }
+}

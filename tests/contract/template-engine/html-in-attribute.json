@@ -1,0 +1,16 @@
+{
+  "name": "html-in-attribute",
+  "type": "template-engine",
+  "input": {
+    "template": "<p title=\"{{entry.body_html}}\">x</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "html_only_in_text"
+    ]
+  }
+}

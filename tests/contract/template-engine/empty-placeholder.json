@@ -1,0 +1,16 @@
+{
+  "name": "empty-placeholder",
+  "type": "template-engine",
+  "input": {
+    "template": "{{}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_placeholder"
+    ]
+  }
+}

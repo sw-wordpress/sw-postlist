@@ -1,0 +1,323 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Stefan Warnat
+# This file is distributed under the same license as the sw-postlist package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sw-postlist 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:63
+msgid "Title of the view"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:64
+msgid "Number of visible entries (after the start offset)"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:65
+msgid "Pagination links"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:66
+msgid "Visitor filters"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:67
+msgid "The rendered entries"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:72
+msgid "ID of the entry"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:73
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:155
+msgid "Title"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:74
+msgid "Excerpt as plain text"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:75
+msgid "Content, sanitized (shortcodes and dynamic blocks are not executed)"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:76
+msgid "Publication date"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:77
+msgid "Date of the last modification"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:78
+msgid "Permalink"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:79
+msgid "Featured image"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:80
+msgid "Name of the author"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:81
+msgid "Author archive"
+msgstr ""
+
+#. translators: %s: taxonomy name
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:86
+#, php-format
+msgid "Terms of the taxonomy \"%s\""
+msgstr ""
+
+#. translators: %s: meta key
+#: src/Infrastructure/WordPress/Engine/PlaceholderRegistry.php:91
+#, php-format
+msgid "Custom field \"%s\" (allowed key)"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Engine/WpLocale.php:24
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#. translators: %s: distance such as "3 days"
+#: src/Infrastructure/WordPress/Engine/WpLocale.php:24
+#, php-format
+msgid "in %s"
+msgstr ""
+
+#: src/Infrastructure/WordPress/PostTypes.php:29
+msgid "Postlist templates"
+msgstr ""
+
+#: src/Infrastructure/WordPress/PostTypes.php:29
+msgid "Postlist views"
+msgstr ""
+
+#: src/Infrastructure/WordPress/PostTypes.php:30
+msgid "Postlist template"
+msgstr ""
+
+#: src/Infrastructure/WordPress/PostTypes.php:30
+msgid "Postlist view"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/BuiltinTemplates.php:33
+msgid "Slides"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/BuiltinTemplates.php:58
+msgid "Read more"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:48
+msgid "Reset filters"
+msgstr ""
+
+#. translators: %d: number of the embedding on the page
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:50
+msgid "Filter"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:50
+#, php-format
+msgid "Filter %d"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:53
+msgid "Apply filters"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:109
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:133
+msgid "All"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:133
+msgid "Author"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:142
+msgid "Search"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:153
+msgid "Date"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:154
+msgid "Last modified"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:156
+msgid "Menu order"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:157
+msgid "ID"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:158
+msgid "Custom field (number)"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:159
+msgid "Custom field (text)"
+msgstr ""
+
+#. translators: %s: sort field, for example "Date"
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:165
+#, php-format
+msgid "%s, descending"
+msgstr ""
+
+#. translators: %s: sort field, for example "Date"
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:167
+#, php-format
+msgid "%s, ascending"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:173
+msgid "Default"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/FilterRenderer.php:173
+msgid "Sort by"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/PaginationRenderer.php:33
+#: src/Infrastructure/WordPress/Render/PaginationRenderer.php:60
+msgid "Previous"
+msgstr ""
+
+#. translators: %d: page number
+#: src/Infrastructure/WordPress/Render/PaginationRenderer.php:43
+#, php-format
+msgid "Page %d"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/PaginationRenderer.php:47
+#: src/Infrastructure/WordPress/Render/PaginationRenderer.php:63
+msgid "Next"
+msgstr ""
+
+#. translators: %d: number of the embedding on the page
+#: src/Infrastructure/WordPress/Render/PaginationRenderer.php:95
+msgid "Pagination"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/PaginationRenderer.php:95
+#, php-format
+msgid "Pagination %d"
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/ViewRenderer.php:252
+#: src/Presentation/Frontend/FrontendAssets.php:79
+msgid "No entries found."
+msgstr ""
+
+#. translators: %s: error code
+#: src/Infrastructure/WordPress/Render/ViewRenderer.php:409
+#, php-format
+msgid "This list cannot be displayed (%s)."
+msgstr ""
+
+#: src/Infrastructure/WordPress/Render/ViewRenderer.php:410
+msgid "This content is currently unavailable."
+msgstr ""
+
+#: src/Presentation/Admin/AdminPage.php:29
+#: src/Presentation/Admin/AdminPage.php:30
+msgid "Postlist"
+msgstr ""
+
+#: src/Presentation/Admin/AdminPage.php:41
+msgid "You do not have permission to access this page."
+msgstr ""
+
+#: src/Presentation/Admin/AdminPage.php:44
+msgid "The Postlist administration has not been built. Install the release package or run \"npm run build\" in apps/admin."
+msgstr ""
+
+#: src/Presentation/Admin/AdminPage.php:47
+msgid "The Postlist administration requires JavaScript."
+msgstr ""
+
+#: src/Presentation/Frontend/FrontendAssets.php:66
+msgid "Previous slide"
+msgstr ""
+
+#: src/Presentation/Frontend/FrontendAssets.php:67
+msgid "Next slide"
+msgstr ""
+
+#: src/Presentation/Frontend/FrontendAssets.php:68
+msgid "Pause autoplay"
+msgstr ""
+
+#: src/Presentation/Frontend/FrontendAssets.php:69
+msgid "Start autoplay"
+msgstr ""
+
+#: src/Presentation/Frontend/FrontendAssets.php:70
+msgid "Loading…"
+msgstr ""
+
+#: src/Presentation/Frontend/FrontendAssets.php:71
+msgid "The list could not be loaded."
+msgstr ""
+
+#: src/Presentation/Frontend/FrontendAssets.php:72
+msgid "Try again"
+msgstr ""
+
+#: src/Presentation/Frontend/FrontendAssets.php:73
+msgid "Load more"
+msgstr ""
+
+#. translators: %d: number of entries shown (two or more)
+#: src/Presentation/Frontend/FrontendAssets.php:75
+#, php-format
+msgid "%d entries shown."
+msgstr ""
+
+#: src/Presentation/Frontend/FrontendAssets.php:76
+msgid "1 entry shown."
+msgstr ""
+
+#. translators: %d: page number
+#: src/Presentation/Frontend/FrontendAssets.php:78
+#, php-format
+msgid "Page %d loaded."
+msgstr ""
+
+#. translators: %s: title of the original
+#: src/Presentation/Rest/AdminPackageController.php:154
+#, php-format
+msgid "%s (copy)"
+msgstr ""
+
+#. translators: 1: required PHP version, 2: current PHP version
+#: sw-postlist.php:36
+#, php-format
+msgid "SW Postlist requires PHP %1$s or newer. You are running PHP %2$s."
+msgstr ""
+
+#: sw-postlist.php:59
+msgid "SW Postlist: the vendor directory is missing. Install the release package or run \"composer install\"."
+msgstr ""

@@ -1,0 +1,21 @@
+{
+  "name": "cc-specification-example",
+  "type": "template-engine",
+  "input": {
+    "template": "<article class=\"swc-event\">\n  <h3>{{entry.title}}</h3>\n  <time>{{view.title}}</time>\n  {{#entry.excerpt}}<p>{{entry.excerpt}}</p>{{/entry.excerpt}}\n  {{^entry.excerpt}}<p>Ort wird bekanntgegeben</p>{{/entry.excerpt}}\n  {{entry.body_html}}\n</article>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {
+      "entry.title": "Gottesdienst <b>",
+      "view.title": "1. November",
+      "entry.excerpt": "",
+      "entry.body_html": {
+        "html": "<div class=\"g\"></div>"
+      }
+    }
+  },
+  "expect": {
+    "html": "<article class=\"swc-event\">\n  <h3>Gottesdienst &lt;b&gt;</h3>\n  <time>1. November</time>\n  \n  <p>Ort wird bekanntgegeben</p>\n  <div class=\"g\"></div>\n</article>"
+  }
+}

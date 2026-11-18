@@ -1,0 +1,16 @@
+{
+  "name": "invalid-formatter-syntax",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_formatter_syntax"
+    ]
+  }
+}

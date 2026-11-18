@@ -1,0 +1,16 @@
+{
+  "name": "section-list-empty",
+  "type": "template-engine",
+  "input": {
+    "template": "{{#entry.terms.category}}has{{/entry.terms.category}}{{^entry.terms.category}}none{{/entry.terms.category}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.terms.category": []
+    }
+  },
+  "expect": {
+    "html": "none"
+  }
+}

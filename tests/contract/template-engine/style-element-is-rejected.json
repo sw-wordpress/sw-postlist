@@ -1,0 +1,16 @@
+{
+  "name": "style-element-is-rejected",
+  "type": "template-engine",
+  "input": {
+    "template": "<style>p{}</style>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "disallowed_tag"
+    ]
+  }
+}

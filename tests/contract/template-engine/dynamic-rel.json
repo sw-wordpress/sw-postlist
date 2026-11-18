@@ -1,0 +1,16 @@
+{
+  "name": "dynamic-rel",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"/x\" rel=\"{{entry.title}}\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_attribute_value"
+    ]
+  }
+}

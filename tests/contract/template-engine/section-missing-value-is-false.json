@@ -1,0 +1,14 @@
+{
+  "name": "section-missing-value-is-false",
+  "type": "template-engine",
+  "input": {
+    "template": "{{#entry.featured}}Yes{{/entry.featured}}{{^entry.featured}}No{{/entry.featured}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "No"
+  }
+}

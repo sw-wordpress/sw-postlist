@@ -1,0 +1,16 @@
+{
+  "name": "incompatible-formatter",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.price|upper}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "incompatible_formatter"
+    ]
+  }
+}

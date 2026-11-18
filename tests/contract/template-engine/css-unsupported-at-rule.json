@@ -1,0 +1,16 @@
+{
+  "name": "css-unsupported-at-rule",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>x</p>",
+    "css": "@page{margin:0}",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_css"
+    ]
+  }
+}

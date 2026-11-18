@@ -1,0 +1,16 @@
+{
+  "name": "formatter-truncate-short-text-is-unchanged",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|truncate:50}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.title": "Hello"
+    }
+  },
+  "expect": {
+    "html": "Hello"
+  }
+}

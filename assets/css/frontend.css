@@ -1,0 +1,540 @@
+/*
+ * SW Postlist frontend styles. All selectors are namespaced with .swp-; layout values come from the custom properties
+ * the renderer sets on .swp-view (validated integers). Breakpoints: tablet up to 1024px, mobile up to 640px.
+ */
+.swp-view {
+	--swp-accent: var(--wp--preset--color--primary, #2271b1);
+	--swp-border: rgba(0, 0, 0, 0.12);
+	--swp-muted: rgba(0, 0, 0, 0.6);
+	--swp-radius: 6px;
+	box-sizing: border-box;
+	font-size: var(--swp-font-desktop, 100%);
+}
+
+.swp-view *,
+.swp-view *::before,
+.swp-view *::after {
+	box-sizing: inherit;
+}
+
+.swp-grid {
+	display: grid;
+	gap: var(--swp-gap-desktop, 24px);
+	grid-template-columns: repeat(var(--swp-cols-desktop, 3), minmax(0, 1fr));
+}
+
+.swp-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--swp-gap-desktop, 24px);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.swp-item {
+	min-width: 0;
+}
+
+li.swp-item {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.swp-list,
+ol.swp-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.swp-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	border: 1px solid var(--swp-border);
+	border-radius: var(--swp-radius);
+	overflow: hidden;
+	background: var(--wp--preset--color--base, #fff);
+}
+
+.swp-card__media {
+	display: block;
+}
+
+.swp-card__media img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: var(--swp-aspect, auto);
+	object-fit: cover;
+}
+
+.swp-card__body {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	padding: 1em;
+}
+
+.swp-card__title,
+.swp-row__title {
+	margin: 0;
+	font-size: 1.15em;
+	line-height: 1.3;
+}
+
+.swp-card__title a,
+.swp-row__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.swp-card__title a:hover,
+.swp-row__title a:hover {
+	color: var(--swp-accent);
+	text-decoration: underline;
+}
+
+.swp-card__date,
+.swp-row__date {
+	color: var(--swp-muted);
+	font-size: 0.85em;
+}
+
+.swp-card__excerpt,
+.swp-row__excerpt {
+	margin: 0;
+}
+
+.swp-row {
+	display: grid;
+	gap: 0.25em;
+	padding-bottom: var(--swp-gap-desktop, 24px);
+	border-bottom: 1px solid var(--swp-border);
+}
+
+.swp-empty,
+.swp-notice {
+	color: var(--swp-muted);
+}
+
+.swp-pagination {
+	margin-top: 1.5em;
+}
+
+.swp-pagination__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.swp-pagination__link {
+	display: inline-block;
+	min-width: 2.25em;
+	padding: 0.4em 0.75em;
+	border: 1px solid var(--swp-border);
+	border-radius: var(--swp-radius);
+	color: inherit;
+	text-align: center;
+	text-decoration: none;
+}
+
+a.swp-pagination__link:hover {
+	border-color: var(--swp-accent);
+	color: var(--swp-accent);
+}
+
+.swp-pagination__link.is-current {
+	border-color: var(--swp-accent);
+	background: var(--swp-accent);
+	color: #fff;
+}
+
+.swp-pagination__gap {
+	padding: 0.4em 0.25em;
+}
+
+.swp-view a:focus-visible {
+	outline: 2px solid var(--swp-accent);
+	outline-offset: 2px;
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+	.swp-view {
+		font-size: var(--swp-font-tablet, 100%);
+	}
+
+	.swp-grid,
+	.swp-list {
+		gap: var(--swp-gap-tablet, 16px);
+	}
+
+	.swp-grid {
+		grid-template-columns: repeat(var(--swp-cols-tablet, 2), minmax(0, 1fr));
+	}
+
+	.swp-hide-tablet {
+		display: none;
+	}
+}
+
+@media (max-width: 640px) {
+	.swp-view {
+		font-size: var(--swp-font-mobile, 100%);
+	}
+
+	.swp-grid,
+	.swp-list {
+		gap: var(--swp-gap-mobile, 12px);
+	}
+
+	.swp-grid {
+		grid-template-columns: repeat(var(--swp-cols-mobile, 1), minmax(0, 1fr));
+	}
+
+	.swp-hide-mobile {
+		display: none;
+	}
+}
+
+@media (min-width: 1025px) {
+	.swp-hide-desktop {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.swp-view * {
+		scroll-behavior: auto !important;
+		transition: none !important;
+		animation: none !important;
+	}
+}
+
+/* Masonry: a normal grid without JavaScript; with the module the items span 1px rows. */
+.swp-masonry.is-ready {
+	grid-auto-rows: 1px;
+	row-gap: 0;
+	align-items: start;
+}
+
+/* Hover grid: the details appear on hover and on keyboard focus; on touch devices they are always visible. */
+.swp-hover {
+	position: relative;
+	overflow: hidden;
+	border-radius: var(--swp-radius);
+	background: #1d2327;
+	color: #fff;
+}
+
+.swp-hover__link {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+}
+
+.swp-hover__link img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: var(--swp-aspect, 4 / 3);
+	object-fit: cover;
+}
+
+.swp-hover__title {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1em;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+	font-weight: 600;
+}
+
+.swp-hover__more {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 0.75em;
+	padding: 1em;
+	background: rgba(0, 0, 0, 0.78);
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.swp-hover:hover .swp-hover__more,
+.swp-hover:focus-within .swp-hover__more {
+	opacity: 1;
+}
+
+.swp-hover__more p {
+	margin: 0;
+}
+
+.swp-hover__button {
+	align-self: flex-start;
+	padding: 0.4em 0.9em;
+	border-radius: var(--swp-radius);
+	background: var(--swp-accent);
+	color: #fff;
+	text-decoration: none;
+}
+
+@media (hover: none) {
+	.swp-hover__more {
+		position: static;
+		background: transparent;
+		opacity: 1;
+	}
+
+	.swp-hover__title {
+		position: static;
+		background: transparent;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.swp-hover__more {
+		transition: none;
+	}
+}
+
+/* Slider: a native scroll-snap track; the module adds buttons, dots and autoplay. */
+.swp-slider {
+	position: relative;
+}
+
+.swp-slider__track {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: calc((100% - (var(--swp-slides-desktop, 3) - 1) * var(--swp-gap-desktop, 24px)) / var(--swp-slides-desktop, 3));
+	gap: var(--swp-gap-desktop, 24px);
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: thin;
+}
+
+.swp-slider__track > .swp-item {
+	scroll-snap-align: start;
+}
+
+.swp-slider__controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	align-items: center;
+	margin-top: 0.75em;
+}
+
+.swp-slider__button {
+	min-width: 2.25em;
+	min-height: 2.25em;
+	padding: 0.25em 0.6em;
+	border: 1px solid var(--swp-border);
+	border-radius: var(--swp-radius);
+	background: var(--wp--preset--color--base, #fff);
+	color: inherit;
+	cursor: pointer;
+}
+
+.swp-slider__button:disabled {
+	opacity: 0.4;
+	cursor: default;
+}
+
+.swp-slider__prev::before {
+	content: "\2039";
+}
+
+.swp-slider__next::before {
+	content: "\203A";
+}
+
+.swp-slider__pause::before {
+	content: "\23F8";
+}
+
+.swp-slider__pause[aria-pressed="true"]::before {
+	content: "\25B6";
+}
+
+.swp-slider__dots {
+	display: flex;
+	gap: 0.4em;
+	margin-left: auto;
+}
+
+.swp-slider__dot {
+	min-width: 0;
+	width: 0.9em;
+	height: 0.9em;
+	min-height: 0;
+	padding: 0;
+	border-radius: 50%;
+}
+
+.swp-slider__dot[aria-current="true"] {
+	border-color: var(--swp-accent);
+	background: var(--swp-accent);
+}
+
+.swp-slider__button:focus-visible,
+.swp-slider__track:focus-visible {
+	outline: 2px solid var(--swp-accent);
+	outline-offset: 2px;
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+	.swp-slider__track {
+		grid-auto-columns: calc((100% - (var(--swp-slides-tablet, 2) - 1) * var(--swp-gap-tablet, 16px)) / var(--swp-slides-tablet, 2));
+		gap: var(--swp-gap-tablet, 16px);
+	}
+}
+
+@media (max-width: 640px) {
+	.swp-slider__track {
+		grid-auto-columns: calc((100% - (var(--swp-slides-mobile, 1) - 1) * var(--swp-gap-mobile, 12px)) / var(--swp-slides-mobile, 1));
+		gap: var(--swp-gap-mobile, 12px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.swp-slider__track {
+		scroll-behavior: auto;
+	}
+}
+
+/* Visitor filters: a plain GET form that works without JavaScript. */
+.swp-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em 1.5em;
+	align-items: flex-end;
+	margin-bottom: 1.5em;
+}
+
+.swp-filter {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35em;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.swp-filter__label {
+	padding: 0;
+	font-size: 0.875em;
+	font-weight: 600;
+}
+
+fieldset.swp-filter--buttons,
+fieldset.swp-filter--checkboxes {
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.swp-filter__input,
+.swp-filter__select {
+	min-height: 2.25em;
+	padding: 0.25em 0.6em;
+	border: 1px solid var(--swp-border);
+	border-radius: var(--swp-radius);
+	font: inherit;
+}
+
+.swp-filter__button,
+.swp-filters__apply,
+.swp-load-more,
+.swp-retry {
+	min-height: 2.25em;
+	padding: 0.25em 0.9em;
+	border: 1px solid var(--swp-border);
+	border-radius: var(--swp-radius);
+	background: var(--wp--preset--color--base, #fff);
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+
+.swp-filter__button.is-active {
+	border-color: var(--swp-accent);
+	background: var(--swp-accent);
+	color: #fff;
+}
+
+.swp-filter__check {
+	display: inline-flex;
+	gap: 0.35em;
+	align-items: center;
+}
+
+.swp-filters__actions {
+	display: flex;
+	gap: 0.75em;
+	align-items: center;
+}
+
+/* With the module the form reacts to every change and needs no apply button. */
+.swp-filters--live .swp-filters__apply {
+	display: none;
+}
+
+.swp-filter__button:focus-visible,
+.swp-filter__input:focus-visible,
+.swp-filter__select:focus-visible,
+.swp-filters__apply:focus-visible,
+.swp-load-more:focus-visible,
+.swp-retry:focus-visible {
+	outline: 2px solid var(--swp-accent);
+	outline-offset: 2px;
+}
+
+/* Dynamic reloading: busy state, status for assistive technology, error notice and the load-more button. */
+.swp-view.is-loading {
+	opacity: 0.6;
+	transition: opacity 0.15s ease;
+}
+
+.swp-status {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+.swp-notice {
+	margin-bottom: 1em;
+	padding: 0.75em 1em;
+	border: 1px solid #b32d2e;
+	border-radius: var(--swp-radius);
+}
+
+.swp-notice p {
+	margin: 0 0 0.5em;
+}
+
+.swp-load-more {
+	display: block;
+	margin: 1.5em auto 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.swp-view.is-loading {
+		transition: none;
+	}
+}

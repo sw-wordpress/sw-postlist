@@ -1,0 +1,16 @@
+{
+  "name": "unsafe-static-url",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"javascript:alert(1)\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unsafe_url"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "section-inside-attribute",
+  "type": "template-engine",
+  "input": {
+    "template": "<div class=\"card {{#entry.featured}}is-featured{{/entry.featured}}\">x</div>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.featured": true
+    }
+  },
+  "expect": {
+    "html": "<div class=\"card is-featured\">x</div>"
+  }
+}

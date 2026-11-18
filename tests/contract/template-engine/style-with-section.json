@@ -1,0 +1,16 @@
+{
+  "name": "style-with-section",
+  "type": "template-engine",
+  "input": {
+    "template": "<p style=\"{{#entry.featured}}color:red{{/entry.featured}}\">x</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "style_section"
+    ]
+  }
+}

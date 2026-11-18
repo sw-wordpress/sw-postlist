@@ -1,0 +1,16 @@
+{
+  "name": "attribute-without-required-value",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href>x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_attribute_value"
+    ]
+  }
+}

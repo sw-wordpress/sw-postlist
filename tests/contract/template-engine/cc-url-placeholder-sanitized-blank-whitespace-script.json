@@ -1,0 +1,16 @@
+{
+  "name": "cc-url-placeholder-sanitized-blank-whitespace-script",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"{{entry.url}}\" target=\"_blank\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {
+      "entry.url": " java\tscript:alert(1)"
+    }
+  },
+  "expect": {
+    "html": "<a target=\"_blank\" rel=\"noopener noreferrer\">x</a>"
+  }
+}

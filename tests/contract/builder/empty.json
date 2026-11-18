@@ -1,0 +1,21 @@
+{
+  "name": "builder-empty",
+  "type": "builder",
+  "input": {
+    "model": {
+      "version": 1,
+      "root": {
+        "type": "container",
+        "direction": "column",
+        "gap": 8,
+        "padding": 0,
+        "background": "",
+        "children": []
+      }
+    }
+  },
+  "expect": {
+    "html": "<article class=\"swp-b swp-b-n1\" data-swp-builder=\"eyJ2ZXJzaW9uIjoxLCJyb290Ijp7InR5cGUiOiJjb250YWluZXIiLCJkaXJlY3Rpb24iOiJjb2x1bW4iLCJnYXAiOjgsInBhZGRpbmciOjAsImJhY2tncm91bmQiOiIiLCJjaGlsZHJlbiI6W119fQ\"></article>",
+    "css": ".swp-b img{display:block;max-width:100%;height:auto}\n.swp-b-title{margin:0}\n.swp-b p{margin:0}\n.swp-b-n1{display:flex;flex-direction:column;gap:8px;padding:0px;}"
+  }
+}

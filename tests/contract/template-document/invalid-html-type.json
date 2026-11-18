@@ -1,0 +1,16 @@
+{
+  "name": "template-invalid-html-type",
+  "type": "template-document",
+  "input": {
+    "schema_version": 1,
+    "title": "Card",
+    "role": "entry",
+    "html": 5,
+    "css": ".a{color:red}"
+  },
+  "expect": {
+    "errors": [
+      "html_invalid"
+    ]
+  }
+}

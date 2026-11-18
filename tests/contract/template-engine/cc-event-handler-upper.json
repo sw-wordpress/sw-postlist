@@ -1,0 +1,16 @@
+{
+  "name": "cc-event-handler-upper",
+  "type": "template-engine",
+  "input": {
+    "template": "<p ONLOAD=\"x()\">a</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "event_handler_attribute"
+    ]
+  }
+}

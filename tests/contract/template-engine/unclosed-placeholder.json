@@ -1,0 +1,16 @@
+{
+  "name": "unclosed-placeholder",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unclosed_placeholder"
+    ]
+  }
+}

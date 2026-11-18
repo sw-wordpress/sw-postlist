@@ -1,0 +1,16 @@
+{
+  "name": "section-with-formatter",
+  "type": "template-engine",
+  "input": {
+    "template": "{{#entry.title|upper}}x{{/entry.title}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "section_formatter"
+    ]
+  }
+}

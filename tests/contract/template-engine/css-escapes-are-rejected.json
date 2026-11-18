@@ -1,0 +1,16 @@
+{
+  "name": "css-escapes-are-rejected",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>x</p>",
+    "css": ".a{content:'\\\\41'}",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_css"
+    ]
+  }
+}

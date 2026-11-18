@@ -1,0 +1,14 @@
+{
+  "name": "formatter-default-uses-fallback",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.excerpt|default:\"n/a\"}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "n/a"
+  }
+}

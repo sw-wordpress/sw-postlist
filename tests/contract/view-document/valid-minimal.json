@@ -1,0 +1,20 @@
+{
+  "name": "valid-minimal",
+  "type": "view-document",
+  "input": {
+    "schema_version": 1,
+    "title": "Minimal",
+    "source": "post:page",
+    "query": {},
+    "layout": {
+      "type": "list"
+    },
+    "pagination": {
+      "mode": "none"
+    },
+    "templates": {}
+  },
+  "expect": {
+    "valid": true
+  }
+}

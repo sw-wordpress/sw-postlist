@@ -1,0 +1,25 @@
+{
+  "name": "formatter-chips",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.terms.category|chips}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.terms.category": [
+        {
+          "label": "Team",
+          "url": null
+        },
+        {
+          "label": "<b>A&B</b>",
+          "url": null
+        }
+      ]
+    }
+  },
+  "expect": {
+    "html": "<span class=\"swp-chip\">Team</span><span class=\"swp-chip\">&lt;b&gt;A&amp;B&lt;/b&gt;</span>"
+  }
+}

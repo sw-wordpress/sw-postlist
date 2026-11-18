@@ -1,0 +1,16 @@
+{
+  "name": "disallowed-attribute",
+  "type": "template-engine",
+  "input": {
+    "template": "<p formaction=\"x\">a</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "disallowed_attribute"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "protocol-relative-url-is-rejected",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"//evil.test/x\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unsafe_url"
+    ]
+  }
+}

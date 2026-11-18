@@ -1,0 +1,16 @@
+{
+  "name": "css-import-is-rejected",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>x</p>",
+    "css": "@import 'x.css';.a{color:red}",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_css"
+    ]
+  }
+}

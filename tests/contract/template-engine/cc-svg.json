@@ -1,0 +1,16 @@
+{
+  "name": "cc-svg",
+  "type": "template-engine",
+  "input": {
+    "template": "<svg><circle/></svg>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "self_closing_element"
+    ]
+  }
+}

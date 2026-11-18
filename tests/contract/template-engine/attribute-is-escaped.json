@@ -1,0 +1,16 @@
+{
+  "name": "attribute-is-escaped",
+  "type": "template-engine",
+  "input": {
+    "template": "<a title=\"{{entry.title}}\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.title": "\"><script>alert(1)</script>"
+    }
+  },
+  "expect": {
+    "html": "<a title=\"&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;\">x</a>"
+  }
+}

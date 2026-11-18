@@ -1,0 +1,16 @@
+{
+  "name": "boolean-and-data-attributes",
+  "type": "template-engine",
+  "input": {
+    "template": "<div hidden data-id=\"{{entry.title}}\" aria-label=\"x\">y</div>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.title": "7"
+    }
+  },
+  "expect": {
+    "html": "<div hidden data-id=\"7\" aria-label=\"x\">y</div>"
+  }
+}

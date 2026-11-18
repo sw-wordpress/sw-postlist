@@ -1,0 +1,16 @@
+{
+  "name": "cc-mixed-url",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"https://x/{{entry.price}}\">a</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "url_attribute_mixed"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "magazine-cards",
+  "title": "Magazine cards with filter",
+  "description": "Cards with a coloured image area, category chips, headline, excerpt and an author footer with initials. Place a taxonomy filter (buttons) in the view tab Filter: it is drawn above the cards as pills.",
+  "layout": {
+    "type": "grid",
+    "columns": {
+      "desktop": 3,
+      "tablet": 2,
+      "mobile": 1
+    },
+    "gap": {
+      "desktop": 24,
+      "tablet": 20,
+      "mobile": 16
+    },
+    "aspect_ratio": "16/9"
+  },
+  "container": {
+    "html": "<section class=\"mc\">{{view.filters}}<div class=\"swp-grid\">{{view.entries}}</div>{{view.navigation}}</section>",
+    "css": ".mc{container-type:inline-size}.mc .swp-filters{justify-content:flex-end;margin-bottom:20px}.mc .swp-filter__label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.mc .swp-filter--buttons{flex-direction:row;flex-wrap:wrap;gap:8px}.mc .swp-filter__button{padding:6px 16px;border:1px solid #d7d7d3;border-radius:999px;background:#fff;color:#1d1d1f;font-weight:600;font-size:.9em}.mc .swp-filter__button.is-active{background:#14141a;border-color:#14141a;color:#fff}.mc .swp-filters__apply{display:none}@container (max-width:900px){.mc .swp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@container (max-width:560px){.mc .swp-grid{grid-template-columns:minmax(0,1fr)}}"
+  },
+  "entry": {
+    "html": "<article class=\"mc-card\">{{#entry.image}}<a class=\"mc-card__media\" href=\"{{entry.url}}\">{{entry.image|image:\"large\"}}</a>{{/entry.image}}{{^entry.image}}<a class=\"mc-card__media mc-card__media--ph\" href=\"{{entry.url}}\" aria-hidden=\"true\" tabindex=\"-1\"></a>{{/entry.image}}<div class=\"mc-card__body\"><div class=\"mc-card__chips\">{{entry.terms.category|chips}}</div><h3 class=\"mc-card__title\"><a href=\"{{entry.url}}\">{{entry.title}}</a></h3>{{#entry.excerpt}}<p class=\"mc-card__text\">{{entry.excerpt|words:24}}</p>{{/entry.excerpt}}<footer class=\"mc-card__meta\"><span class=\"mc-card__avatar\" aria-hidden=\"true\">{{entry.author.name|initials}}</span><span class=\"mc-card__author\">{{entry.author.name}}</span><span class=\"mc-card__dot\" aria-hidden=\"true\">·</span><time>{{entry.date|date:\"d. M Y\"}}</time></footer></div></article>",
+    "css": ".mc-card{display:flex;flex-direction:column;height:100%;background:#fff;border:1px solid #e3e3df;border-radius:14px;overflow:hidden}.mc-card__media{display:block}.mc-card__media img{display:block;width:100%;height:auto;aspect-ratio:var(--swp-aspect,16/9);object-fit:cover}.mc-card__media--ph{aspect-ratio:16/9;background:radial-gradient(circle at 78% 20%,#1f7a4d 0 26%,transparent 27%),linear-gradient(160deg,#dcebe1,#cfe2d6)}.mc-card__body{display:flex;flex-direction:column;gap:10px;padding:18px 20px 16px;flex:1}.mc-card__chips{display:flex;flex-wrap:wrap;gap:6px}.mc-card .swp-chip{padding:2px 10px;border-radius:6px;background:#dcebe1;color:#1e5a3a;font-size:.72em;font-weight:700}.mc-card__title{margin:0;font-size:1.2em;line-height:1.25;font-weight:700}.mc-card__title a{color:#14141a;text-decoration:none}.mc-card__text{margin:0;color:#555;font-size:.92em;line-height:1.55}.mc-card__meta{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:14px;border-top:1px solid #ececea;font-size:.8em;color:#666}.mc-card__avatar{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#14141a;color:#fff;font-size:.72em;font-weight:700}.mc-card__author{font-weight:700;color:#14141a}"
+  },
+  "builder": null
+}

@@ -1,0 +1,16 @@
+{
+  "name": "formatter-words",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.excerpt|words:3}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.excerpt": "one two three four five"
+    }
+  },
+  "expect": {
+    "html": "one two three…"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "section-end-without-open",
+  "type": "template-engine",
+  "input": {
+    "template": "{{/entry.featured}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unexpected_section_end"
+    ]
+  }
+}

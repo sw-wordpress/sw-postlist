@@ -1,0 +1,16 @@
+{
+  "name": "style-color-placeholder",
+  "type": "template-engine",
+  "input": {
+    "template": "<div style=\"color: {{entry.color}}; margin: 0\">x</div>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.color": "#FF0000"
+    }
+  },
+  "expect": {
+    "html": "<div style=\"color: #ff0000; margin: 0\">x</div>"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "cc-void-and-boolean-attributes",
+  "type": "template-engine",
+  "input": {
+    "template": "<details open><summary>x</summary><img src=\"/a.png\" alt=\"\"/><br></details>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "html": "<details open><summary>x</summary><img src=\"/a.png\" alt=\"\"><br></details>"
+  }
+}

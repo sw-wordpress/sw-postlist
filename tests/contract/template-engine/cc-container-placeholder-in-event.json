@@ -1,0 +1,16 @@
+{
+  "name": "cc-container-placeholder-in-event",
+  "type": "template-engine",
+  "input": {
+    "template": "{{view.entries}}",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unknown_placeholder"
+    ]
+  }
+}

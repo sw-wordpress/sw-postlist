@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sw-postlist/view",
+	"title": "Postlist",
+	"category": "widgets",
+	"icon": "list-view",
+	"description": "Displays a saved Postlist view.",
+	"keywords": [ "posts", "list", "grid", "postlist" ],
+	"textdomain": "sw-postlist",
+	"attributes": {
+		"viewId": { "type": "number", "default": 0 },
+		"instanceKey": { "type": "string", "default": "" },
+		"layout": { "type": "string", "default": "" },
+		"columns": { "type": "string", "default": "" },
+		"perPage": { "type": "string", "default": "" }
+	},
+	"supports": { "html": false, "align": [ "wide", "full" ] },
+	"editorScript": "file:./index.js"
+}

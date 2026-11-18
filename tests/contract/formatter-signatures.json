@@ -1,0 +1,253 @@
+{
+    "capitalize": {
+        "inputs": [
+            "text"
+        ],
+        "output": "text",
+        "params": [],
+        "accepts_empty": false
+    },
+    "chips": {
+        "inputs": [
+            "list"
+        ],
+        "output": "html",
+        "params": [
+            {
+                "name": "class",
+                "type": "string",
+                "required": false,
+                "min": null,
+                "max": null,
+                "allowed": null,
+                "max_length": 40
+            }
+        ],
+        "accepts_empty": false
+    },
+    "currency": {
+        "inputs": [
+            "number"
+        ],
+        "output": "text",
+        "params": [
+            {
+                "name": "currency",
+                "type": "string",
+                "required": true,
+                "min": null,
+                "max": null,
+                "allowed": [
+                    "EUR",
+                    "USD",
+                    "GBP",
+                    "CHF",
+                    "JPY",
+                    "CAD",
+                    "AUD",
+                    "SEK",
+                    "NOK",
+                    "DKK",
+                    "PLN",
+                    "CZK"
+                ],
+                "max_length": 200
+            }
+        ],
+        "accepts_empty": false
+    },
+    "date": {
+        "inputs": [
+            "date"
+        ],
+        "output": "text",
+        "params": [
+            {
+                "name": "format",
+                "type": "string",
+                "required": false,
+                "min": null,
+                "max": null,
+                "allowed": null,
+                "max_length": 50
+            }
+        ],
+        "accepts_empty": false
+    },
+    "default": {
+        "inputs": [
+            "text",
+            "number"
+        ],
+        "output": "text",
+        "params": [
+            {
+                "name": "fallback",
+                "type": "string",
+                "required": true,
+                "min": null,
+                "max": null,
+                "allowed": null,
+                "max_length": 200
+            }
+        ],
+        "accepts_empty": true
+    },
+    "esc_url": {
+        "inputs": [
+            "url",
+            "text"
+        ],
+        "output": "url",
+        "params": [],
+        "accepts_empty": false
+    },
+    "initials": {
+        "inputs": [
+            "text"
+        ],
+        "output": "text",
+        "params": [
+            {
+                "name": "count",
+                "type": "int",
+                "required": false,
+                "min": 1,
+                "max": 3,
+                "allowed": null,
+                "max_length": null
+            }
+        ],
+        "accepts_empty": false
+    },
+    "join": {
+        "inputs": [
+            "list"
+        ],
+        "output": "text",
+        "params": [
+            {
+                "name": "separator",
+                "type": "string",
+                "required": false,
+                "min": null,
+                "max": null,
+                "allowed": null,
+                "max_length": 20
+            }
+        ],
+        "accepts_empty": false
+    },
+    "link": {
+        "inputs": [
+            "list"
+        ],
+        "output": "html",
+        "params": [
+            {
+                "name": "separator",
+                "type": "string",
+                "required": false,
+                "min": null,
+                "max": null,
+                "allowed": null,
+                "max_length": 20
+            }
+        ],
+        "accepts_empty": false
+    },
+    "lower": {
+        "inputs": [
+            "text"
+        ],
+        "output": "text",
+        "params": [],
+        "accepts_empty": false
+    },
+    "nl2br": {
+        "inputs": [
+            "text"
+        ],
+        "output": "html",
+        "params": [],
+        "accepts_empty": false
+    },
+    "number": {
+        "inputs": [
+            "number"
+        ],
+        "output": "text",
+        "params": [
+            {
+                "name": "decimals",
+                "type": "int",
+                "required": false,
+                "min": 0,
+                "max": 10,
+                "allowed": null,
+                "max_length": null
+            }
+        ],
+        "accepts_empty": false
+    },
+    "relative_date": {
+        "inputs": [
+            "date"
+        ],
+        "output": "text",
+        "params": [],
+        "accepts_empty": false
+    },
+    "strip_tags": {
+        "inputs": [
+            "text"
+        ],
+        "output": "text",
+        "params": [],
+        "accepts_empty": false
+    },
+    "truncate": {
+        "inputs": [
+            "text"
+        ],
+        "output": "text",
+        "params": [
+            {
+                "name": "length",
+                "type": "int",
+                "required": true,
+                "min": 1,
+                "max": 10000,
+                "allowed": null,
+                "max_length": null
+            }
+        ],
+        "accepts_empty": false
+    },
+    "upper": {
+        "inputs": [
+            "text"
+        ],
+        "output": "text",
+        "params": [],
+        "accepts_empty": false
+    },
+    "words": {
+        "inputs": [
+            "text"
+        ],
+        "output": "text",
+        "params": [
+            {
+                "name": "count",
+                "type": "int",
+                "required": true,
+                "min": 1,
+                "max": 1000,
+                "allowed": null,
+                "max_length": null
+            }
+        ],
+        "accepts_empty": false
+    }
+}

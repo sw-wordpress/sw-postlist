@@ -1,0 +1,16 @@
+{
+  "name": "too-many-formatter-parameters",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|upper:1}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "too_many_parameters"
+    ]
+  }
+}

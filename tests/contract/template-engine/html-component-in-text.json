@@ -1,0 +1,18 @@
+{
+  "name": "html-component-in-text",
+  "type": "template-engine",
+  "input": {
+    "template": "<div>{{entry.body_html}}</div>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.body_html": {
+        "html": "<b>trusted</b>"
+      }
+    }
+  },
+  "expect": {
+    "html": "<div><b>trusted</b></div>"
+  }
+}

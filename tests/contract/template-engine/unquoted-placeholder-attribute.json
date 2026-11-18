@@ -1,0 +1,16 @@
+{
+  "name": "unquoted-placeholder-attribute",
+  "type": "template-engine",
+  "input": {
+    "template": "<div title={{entry.title}}>x</div>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unquoted_placeholder"
+    ]
+  }
+}

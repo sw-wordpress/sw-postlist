@@ -1,0 +1,16 @@
+{
+  "name": "url-attribute-takes-a-url-type",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"{{entry.title}}\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "type_not_allowed_in_context"
+    ]
+  }
+}

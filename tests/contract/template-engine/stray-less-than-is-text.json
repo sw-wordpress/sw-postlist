@@ -1,0 +1,14 @@
+{
+  "name": "stray-less-than-is-text",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>1 < 2</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "<p>1 &lt; 2</p>"
+  }
+}

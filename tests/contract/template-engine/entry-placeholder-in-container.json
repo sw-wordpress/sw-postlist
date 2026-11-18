@@ -1,0 +1,16 @@
+{
+  "name": "entry-placeholder-in-container",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title}}",
+    "css": "",
+    "role": "container",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unknown_placeholder"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "self-closing-non-void",
+  "type": "template-engine",
+  "input": {
+    "template": "<div/>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "self_closing_element"
+    ]
+  }
+}

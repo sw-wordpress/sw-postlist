@@ -1,0 +1,16 @@
+{
+  "name": "doctype-is-rejected",
+  "type": "template-engine",
+  "input": {
+    "template": "<!DOCTYPE html><p>x</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "disallowed_markup"
+    ]
+  }
+}

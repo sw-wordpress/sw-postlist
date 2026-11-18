@@ -1,0 +1,16 @@
+{
+  "name": "section-text-empty-and-blank",
+  "type": "template-engine",
+  "input": {
+    "template": "{{#entry.excerpt}}[{{entry.excerpt}}]{{/entry.excerpt}}{{^entry.excerpt}}none{{/entry.excerpt}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.excerpt": "   "
+    }
+  },
+  "expect": {
+    "html": "none"
+  }
+}

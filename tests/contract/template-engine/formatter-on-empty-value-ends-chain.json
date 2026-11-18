@@ -1,0 +1,14 @@
+{
+  "name": "formatter-on-empty-value-ends-chain",
+  "type": "template-engine",
+  "input": {
+    "template": "[{{entry.excerpt|upper|truncate:3}}]",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "[]"
+  }
+}

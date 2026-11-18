@@ -1,0 +1,16 @@
+{
+  "name": "style-with-url",
+  "type": "template-engine",
+  "input": {
+    "template": "<p style=\"background: url(http://x.test/a.png)\">x</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_style"
+    ]
+  }
+}

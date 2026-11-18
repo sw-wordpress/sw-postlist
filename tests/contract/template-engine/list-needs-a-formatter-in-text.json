@@ -1,0 +1,16 @@
+{
+  "name": "list-needs-a-formatter-in-text",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.terms.category}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "type_not_allowed_in_context"
+    ]
+  }
+}

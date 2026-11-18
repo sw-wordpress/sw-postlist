@@ -1,0 +1,16 @@
+{
+  "name": "triple-mustache-is-rejected",
+  "type": "template-engine",
+  "input": {
+    "template": "{{{entry.title}}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unsupported_syntax"
+    ]
+  }
+}

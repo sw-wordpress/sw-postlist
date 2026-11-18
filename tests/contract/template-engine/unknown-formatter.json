@@ -1,0 +1,16 @@
+{
+  "name": "unknown-formatter",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|shout}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unknown_formatter"
+    ]
+  }
+}

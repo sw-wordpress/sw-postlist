@@ -1,0 +1,16 @@
+{
+  "name": "partial-is-rejected",
+  "type": "template-engine",
+  "input": {
+    "template": "{{> header}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unsupported_syntax"
+    ]
+  }
+}

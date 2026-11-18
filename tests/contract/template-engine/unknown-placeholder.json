@@ -1,0 +1,16 @@
+{
+  "name": "unknown-placeholder",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.nope}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unknown_placeholder"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "formatter-literal-with-quotes-and-colon",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.terms.category|join:\"\\\": \\\\ | :\"}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.terms.category": [
+        {
+          "label": "A"
+        },
+        {
+          "label": "B"
+        }
+      ]
+    }
+  },
+  "expect": {
+    "html": "A&quot;: \\ | :B"
+  }
+}

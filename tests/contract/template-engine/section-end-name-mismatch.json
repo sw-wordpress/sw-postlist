@@ -1,0 +1,17 @@
+{
+  "name": "section-end-name-mismatch",
+  "type": "template-engine",
+  "input": {
+    "template": "{{#entry.featured}}x{{/entry.excerpt}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unclosed_section",
+      "unexpected_section_end"
+    ]
+  }
+}

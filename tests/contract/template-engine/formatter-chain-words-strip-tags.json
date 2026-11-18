@@ -1,0 +1,16 @@
+{
+  "name": "formatter-chain-words-strip-tags",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.excerpt|strip_tags|words:2}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.excerpt": "<p>Hello <b>big</b> world</p>"
+    }
+  },
+  "expect": {
+    "html": "Hello big…"
+  }
+}

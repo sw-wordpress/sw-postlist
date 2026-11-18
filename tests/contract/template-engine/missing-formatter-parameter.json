@@ -1,0 +1,16 @@
+{
+  "name": "missing-formatter-parameter",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|truncate}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "missing_parameter"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "cc-css-url-in-style",
+  "type": "template-engine",
+  "input": {
+    "template": "<p style=\"background:url(https://evil/x)\">a</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_style"
+    ]
+  }
+}

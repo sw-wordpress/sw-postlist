@@ -1,0 +1,16 @@
+{
+  "name": "formatter-esc-url-rejects-unsafe",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"{{entry.meta.subtitle|esc_url}}\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.meta.subtitle": "javascript:alert(1)"
+    }
+  },
+  "expect": {
+    "html": "<a>x</a>"
+  }
+}

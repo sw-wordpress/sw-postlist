@@ -1,0 +1,16 @@
+{
+  "name": "css-nested-rule",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>x</p>",
+    "css": ".a{.b{color:red}}",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_css"
+    ]
+  }
+}

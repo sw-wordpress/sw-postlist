@@ -1,0 +1,17 @@
+{
+  "name": "cc-section-truthiness-blank",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>{{#entry.excerpt}}at {{entry.excerpt}}{{/entry.excerpt}}{{^entry.featured}} timed{{/entry.featured}}</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {
+      "entry.excerpt": "  ",
+      "entry.featured": true
+    }
+  },
+  "expect": {
+    "html": "<p></p>"
+  }
+}

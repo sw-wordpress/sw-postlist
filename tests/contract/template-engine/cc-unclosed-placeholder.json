@@ -1,0 +1,17 @@
+{
+  "name": "cc-unclosed-placeholder",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>{{entry.title</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unclosed_element",
+      "unclosed_placeholder"
+    ]
+  }
+}

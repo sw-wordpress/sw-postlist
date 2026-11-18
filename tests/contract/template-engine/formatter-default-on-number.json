@@ -1,0 +1,16 @@
+{
+  "name": "formatter-default-on-number",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.price|default:\"free\"}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.price": 0
+    }
+  },
+  "expect": {
+    "html": "0"
+  }
+}

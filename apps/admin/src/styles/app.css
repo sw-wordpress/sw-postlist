@@ -1,0 +1,966 @@
+/*
+ * sw-postlist admin styles. Everything is namespaced with `swp-` / `.swp-root` so nothing
+ * leaks into wp-admin. Quasar's own CSS is scoped to `.swp-root` at build time
+ * (tools/postcssScope.ts).
+ */
+
+/* ---------- design tokens ---------- */
+.swp-root {
+  --swp-primary: #4f46e5;
+  --swp-primary-strong: #4338ca;
+  --swp-primary-soft: #eef2ff;
+  --swp-accent: #0d9488;
+  --swp-accent-bright: #14b8a6;
+  --swp-success: #16a34a;
+  --swp-warning: #f59e0b;
+  --swp-danger: #dc2626;
+  --swp-info: #0284c7;
+
+  --swp-success-text: #166534;
+  --swp-warning-text: #92400e;
+  --swp-danger-text: #b91c1c;
+  --swp-info-text: #075985;
+  --swp-neutral-text: #334155;
+  --swp-success-bg: #dcfce7;
+  --swp-warning-bg: #fef3c7;
+  --swp-danger-bg: #fee2e2;
+  --swp-info-bg: #e0f2fe;
+  --swp-neutral-bg: #eef1f6;
+  --swp-primary-text: #3730a3;
+  --swp-primary-bg: #e0e7ff;
+
+  --swp-bg: #f3f4fa;
+  --swp-surface: #ffffff;
+  --swp-surface-2: #f8f9fc;
+  --swp-surface-3: #eef0f7;
+  --swp-border: #e1e5ee;
+  --swp-text: #0f172a;
+  --swp-muted: #475569;
+  --swp-rail-bg: #ffffff;
+  --swp-focus: #4f46e5;
+  --swp-overlay: rgba(15, 23, 42, 0.45);
+
+  --swp-gradient: linear-gradient(135deg, #4f46e5 0%, #0d9488 100%);
+  --swp-gradient-soft: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.1) 0%,
+    rgba(20, 184, 166, 0.1) 100%
+  );
+
+  --swp-radius: 16px;
+  --swp-radius-sm: 10px;
+  --swp-shadow-1: 0 1px 2px rgba(15, 23, 42, 0.05), 0 2px 6px rgba(15, 23, 42, 0.04);
+  --swp-shadow-2:
+    0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 16px rgba(15, 23, 42, 0.06),
+    0 18px 40px rgba(15, 23, 42, 0.05);
+  --swp-font: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --swp-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* map to Quasar brand variables (set here instead of Quasar's runtime brand plugin) */
+  --q-primary: var(--swp-primary);
+  --q-secondary: var(--swp-accent);
+  --q-accent: var(--swp-accent-bright);
+  --q-positive: var(--swp-success);
+  --q-negative: var(--swp-danger);
+  --q-info: var(--swp-info);
+  --q-warning: var(--swp-warning);
+  --q-dark: var(--swp-surface);
+  --q-dark-page: var(--swp-bg);
+
+  color-scheme: light;
+  font-family: var(--swp-font);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--swp-text);
+  font-feature-settings: 'cv11', 'ss03';
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.swp-root.swp-dark {
+  --swp-primary: #818cf8;
+  --swp-primary-strong: #a5b4fc;
+  --swp-primary-soft: rgba(129, 140, 248, 0.14);
+  --swp-accent: #2dd4bf;
+  --swp-accent-bright: #2dd4bf;
+  --swp-success: #4ade80;
+  --swp-warning: #fbbf24;
+  --swp-danger: #f87171;
+  --swp-info: #38bdf8;
+
+  --swp-success-text: #86efac;
+  --swp-warning-text: #fcd34d;
+  --swp-danger-text: #fca5a5;
+  --swp-info-text: #7dd3fc;
+  --swp-neutral-text: #cbd5e1;
+  --swp-primary-text: #c7d2fe;
+  --swp-success-bg: rgba(74, 222, 128, 0.14);
+  --swp-warning-bg: rgba(251, 191, 36, 0.14);
+  --swp-danger-bg: rgba(248, 113, 113, 0.16);
+  --swp-info-bg: rgba(56, 189, 248, 0.14);
+  --swp-neutral-bg: rgba(148, 163, 184, 0.16);
+  --swp-primary-bg: rgba(129, 140, 248, 0.2);
+
+  --swp-bg: #0a0f1f;
+  --swp-surface: #131a2e;
+  --swp-surface-2: #182038;
+  --swp-surface-3: #1f2946;
+  --swp-border: #263250;
+  --swp-text: #e8ecf8;
+  --swp-muted: #a3aecb;
+  --swp-rail-bg: #0e1427;
+  --swp-focus: #a5b4fc;
+  --swp-overlay: rgba(2, 6, 20, 0.65);
+
+  --swp-gradient: linear-gradient(135deg, #6366f1 0%, #14b8a6 100%);
+  --swp-gradient-soft: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.18) 0%,
+    rgba(20, 184, 166, 0.14) 100%
+  );
+  --swp-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --swp-shadow-2: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+/* ---------- isolation reset (wp-admin styles bleeding in) ---------- */
+.swp-root *,
+.swp-root *::before,
+.swp-root *::after {
+  box-sizing: border-box;
+}
+.swp-root h1,
+.swp-root h2,
+.swp-root h3,
+.swp-root h4,
+.swp-root h5,
+.swp-root h6,
+.swp-root p,
+.swp-root ul,
+.swp-root ol,
+.swp-root dl,
+.swp-root dd,
+.swp-root figure {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  line-height: 1.35;
+}
+.swp-root ul,
+.swp-root ol {
+  list-style: none;
+}
+.swp-root a {
+  color: var(--swp-primary);
+  text-decoration: none;
+}
+.swp-root a:hover {
+  text-decoration: underline;
+}
+.swp-root button,
+.swp-root input,
+.swp-root select,
+.swp-root textarea {
+  font-family: inherit;
+}
+.swp-root table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0;
+  width: 100%;
+  background: transparent;
+  border: 0;
+}
+.swp-root th,
+.swp-root td {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  vertical-align: middle;
+}
+.swp-root code {
+  font-family: var(--swp-mono);
+  font-size: 0.9em;
+  background: var(--swp-surface-3);
+  padding: 0.1em 0.4em;
+  border-radius: 6px;
+}
+.swp-root label {
+  display: inline;
+  margin: 0;
+  font-weight: inherit;
+}
+
+/* Standalone pseudo-roots created by Quasar for dialogs/menus/notifications */
+.swp-root.q-portal--dialog,
+.swp-root.q-portal--menu {
+  font-size: 15px;
+}
+
+/* ---------- WordPress integration ---------- */
+.swp-fullbleed {
+  margin: 0 0 0 -20px;
+}
+@media screen and (max-width: 782px) {
+  .swp-fullbleed {
+    margin-left: -10px;
+  }
+}
+body.swp-admin-page #wpfooter {
+  display: none;
+}
+body.swp-admin-page #wpbody-content {
+  padding-bottom: 0;
+}
+/* Quasar locks scroll with a class on body when a dialog is open */
+body.q-body--prevent-scroll {
+  overflow: hidden;
+}
+/* Dialogs/menus/notifications must sit above the WP admin bar (99999) and admin menu */
+.swp-root.q-portal--dialog .q-dialog,
+.swp-root.q-portal--menu .q-menu,
+.swp-root.q-portal--dialog .q-dialog__backdrop {
+  z-index: 100100;
+}
+.swp-root .q-notifications__list {
+  z-index: 100200;
+}
+.swp-root .q-menu,
+.swp-root.q-portal--menu .q-menu {
+  z-index: 100150;
+}
+.swp-root.q-portal--tooltip .q-tooltip,
+.swp-root .q-tooltip {
+  z-index: 100300;
+}
+
+/* ---------- utilities ---------- */
+.swp-sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.swp-num {
+  font-variant-numeric: tabular-nums;
+}
+.swp-muted {
+  color: var(--swp-muted);
+}
+.swp-mono {
+  font-family: var(--swp-mono);
+  font-size: 0.88em;
+}
+.swp-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+.swp-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.swp-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.swp-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+.swp-grid--wide {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+.swp-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--swp-muted);
+}
+
+/* ---------- focus ---------- */
+.swp-root :focus-visible {
+  outline: 3px solid var(--swp-focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+.swp-root .q-btn:focus-visible,
+.swp-root .q-field:focus-within .q-field__control {
+  outline: 3px solid var(--swp-focus);
+  outline-offset: 1px;
+}
+.swp-root .q-field__native:focus-visible,
+.swp-root .q-field__input:focus-visible {
+  outline: none;
+}
+
+/* ---------- Quasar tuning ---------- */
+.swp-root .q-btn {
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  border-radius: 10px;
+}
+.swp-root .q-btn--standard.bg-primary,
+.swp-root .q-btn.swp-btn-gradient {
+  background: var(--swp-gradient) !important;
+}
+.swp-root .q-btn.bg-primary {
+  color: #fff !important;
+}
+.swp-root .q-field--outlined .q-field__control {
+  border-radius: 10px;
+}
+.swp-root .q-field--outlined .q-field__control:before {
+  border-color: var(--swp-border);
+}
+.swp-root .q-field--outlined:not(.q-field--readonly) .q-field__control:hover:before {
+  border-color: var(--swp-muted);
+}
+.swp-root .q-field__label,
+.swp-root .q-field__bottom {
+  color: var(--swp-muted);
+}
+.swp-root .q-field--dark .q-field__native,
+.swp-root .q-field--dark .q-field__prefix,
+.swp-root .q-field--dark .q-field__suffix,
+.swp-root .q-field--dark .q-field__input {
+  color: var(--swp-text);
+}
+.swp-root .q-card {
+  background: var(--swp-surface);
+  color: var(--swp-text);
+  box-shadow: var(--swp-shadow-2);
+  border-radius: var(--swp-radius);
+}
+.swp-root .q-menu {
+  background: var(--swp-surface);
+  color: var(--swp-text);
+  border: 1px solid var(--swp-border);
+  border-radius: 12px;
+  box-shadow: var(--swp-shadow-2);
+}
+.swp-root .q-item--active,
+.swp-root .q-item.q-router-link--active {
+  color: var(--swp-primary);
+}
+.swp-root .q-tooltip {
+  background: var(--swp-text);
+  color: var(--swp-surface);
+  font-size: 13px;
+  border-radius: 8px;
+}
+.swp-root .q-skeleton {
+  background: var(--swp-surface-3);
+}
+.swp-root .q-skeleton--type-text,
+.swp-root .q-skeleton--type-rect {
+  border-radius: 8px;
+}
+.swp-root .q-notification {
+  border-radius: 12px;
+  box-shadow: var(--swp-shadow-2);
+  font-size: 14px;
+}
+.swp-root .q-linear-progress {
+  border-radius: 999px;
+}
+.swp-root .q-toggle__label,
+.swp-root .q-checkbox__label {
+  font-size: 14px;
+}
+.swp-root .q-dialog__backdrop {
+  background: var(--swp-overlay);
+}
+.swp-root .q-drawer {
+  background: var(--swp-surface);
+}
+.swp-root .q-separator {
+  background: var(--swp-border);
+}
+
+/* ---------- native tables that stack on small screens ---------- */
+.swp-table {
+  font-variant-numeric: tabular-nums;
+}
+.swp-table th {
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--swp-muted);
+  border-bottom: 1px solid var(--swp-border);
+  white-space: nowrap;
+}
+.swp-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--swp-border);
+  font-size: 14px;
+}
+.swp-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+.swp-table tbody tr:hover td {
+  background: var(--swp-surface-2);
+}
+.swp-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+@media (max-width: 760px) {
+  .swp-table-wrap {
+    overflow-x: auto;
+  }
+}
+
+/* ---------- motion ---------- */
+@keyframes swp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes swp-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+@keyframes swp-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.swp-fade-enter-active,
+.swp-fade-leave-active {
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+.swp-fade-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.swp-fade-leave-to {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .swp-root *,
+  .swp-root *::before,
+  .swp-root *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Postlist pages (shell, headers, cards, tables, forms) on the shared tokens ---------- */
+.swp-page__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.swp-page h1 {
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+.swp-page__header h1 {
+  margin: 0;
+}
+.swp-page h2 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 24px 0 10px;
+}
+.swp-page h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 14px 0 6px;
+}
+.swp-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.swp-ok {
+  color: var(--swp-success-text);
+}
+.swp-error {
+  color: var(--swp-danger-text);
+}
+.swp-card-section,
+.swp-summary {
+  margin-bottom: 20px;
+}
+.swp-fieldset {
+  border: 0;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+.swp-fieldset legend {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--swp-muted);
+  margin-bottom: 4px;
+}
+.swp-cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  margin: 0 0 20px;
+}
+.swp-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+  background: var(--swp-surface);
+  border: 1px solid var(--swp-border);
+  border-radius: var(--swp-radius);
+  box-shadow: var(--swp-shadow-1);
+  color: var(--swp-text) !important;
+  text-decoration: none !important;
+  transition:
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+a.swp-stat:hover {
+  box-shadow: var(--swp-shadow-2);
+  transform: translateY(-1px);
+}
+.swp-stat span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--swp-muted);
+}
+.swp-stat strong {
+  font-size: 30px;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.swp-root .swp-table {
+  background: var(--swp-surface);
+  border: 1px solid var(--swp-border);
+  border-radius: var(--swp-radius);
+  box-shadow: var(--swp-shadow-1);
+  overflow: hidden;
+}
+.swp-table__actions {
+  white-space: nowrap;
+  text-align: right !important;
+}
+.swp-root .swp-table--compact {
+  box-shadow: none;
+  border-radius: var(--swp-radius-sm);
+}
+.swp-table--compact td,
+.swp-table--compact th {
+  padding: 6px 8px;
+}
+.swp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 920px;
+}
+.swp-row-fields {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.swp-row-fields > * {
+  flex: 1 1 200px;
+}
+.swp-panels,
+.swp-panel,
+.swp-preset,
+.swp-builder__settings,
+.swp-summary {
+  background: var(--swp-surface);
+  border: 1px solid var(--swp-border);
+  border-radius: var(--swp-radius);
+  box-shadow: var(--swp-shadow-1);
+}
+.swp-panels {
+  overflow: hidden;
+}
+.swp-issues {
+  border: 1px solid var(--swp-danger);
+  background: var(--swp-danger-bg);
+  color: var(--swp-danger-text);
+  padding: 10px 16px;
+  border-radius: var(--swp-radius-sm);
+  margin: 8px 0 16px;
+}
+.swp-issues h3 {
+  margin: 0 0 4px;
+}
+.swp-issues ul {
+  padding-left: 18px;
+  list-style: disc;
+}
+.swp-banner {
+  background: var(--swp-danger-bg);
+}
+.swp-editor-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .swp-editor-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.swp-code-editor,
+.swp-builder__tree {
+  border: 1px solid var(--swp-border);
+  border-radius: var(--swp-radius-sm);
+  background: var(--swp-surface);
+}
+.swp-code-editor {
+  min-height: 280px;
+  overflow: hidden;
+}
+.swp-code-editor .cm-editor {
+  min-height: 280px;
+}
+.swp-panel {
+  padding: 10px 14px;
+  max-height: 560px;
+  overflow: auto;
+}
+.swp-placeholders {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.swp-placeholders li {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--swp-border);
+}
+.swp-placeholder {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 2px 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+.swp-placeholder:hover code,
+.swp-placeholder:focus-visible code {
+  text-decoration: underline;
+}
+.swp-type,
+.swp-preview__width {
+  color: var(--swp-muted);
+  font-size: 12px;
+}
+.swp-preview__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0;
+}
+.swp-preview__width {
+  margin-left: 6px;
+}
+.swp-preview__frame {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid var(--swp-border);
+  border-radius: var(--swp-radius-sm);
+  overflow: hidden;
+  background: #fff;
+}
+.swp-preview__frame iframe {
+  width: 100%;
+  min-height: 420px;
+  border: 0;
+  display: block;
+}
+.swp-narrow {
+  max-width: 420px;
+}
+.swp-cards--presets {
+  align-items: stretch;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+}
+.swp-preset {
+  padding: 16px 18px;
+}
+.swp-preset h2 {
+  margin-top: 0;
+}
+.swp-tag {
+  display: inline-block;
+  padding: 0 10px;
+  margin-right: 6px;
+  border-radius: 999px;
+  background: var(--swp-primary-bg);
+  color: var(--swp-primary-text);
+  font-size: 12px;
+  font-weight: 600;
+}
+.swp-builder {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+@media (max-width: 960px) {
+  .swp-builder {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.swp-builder__toolbar {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.swp-builder__toolbar > :first-child {
+  min-width: 220px;
+}
+.swp-builder__tree {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.swp-builder__tree li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--swp-border);
+}
+.swp-builder__tree li.is-selected {
+  background: var(--swp-primary-soft);
+}
+.swp-builder__label {
+  flex: 1;
+  background: none;
+  border: 0;
+  text-align: left;
+  padding: 6px 8px;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.swp-builder__settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+.swp-builder__settings h3 {
+  margin: 0;
+}
+.swp-filter-row {
+  border: 1px solid var(--swp-border);
+  border-radius: var(--swp-radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.swp-filter-row__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.swp-filter-add {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Quasar wraps the ligature text of button icons in a span; keep wp-admin rules from giving it another font. */
+.swp-root .q-icon > span {
+  font: inherit;
+  letter-spacing: normal;
+  width: auto;
+}
+
+.swp-stat-link {
+  display: block;
+  color: inherit !important;
+  text-decoration: none !important;
+  border-radius: var(--swp-radius);
+}
+.swp-stat-link:hover .swp-stat {
+  box-shadow: var(--swp-shadow-2);
+}
+.swp-stat__value strong {
+  font-size: 26px;
+  font-weight: 700;
+}
+.swp-file {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0 12px;
+}
+.swp-file input[type='file'] {
+  max-width: 100%;
+  padding: 6px 8px;
+  border: 1px dashed var(--swp-border);
+  border-radius: var(--swp-radius-sm);
+  background: var(--swp-surface);
+  color: var(--swp-text);
+}
+
+/* Row actions: round icon buttons with tooltips, as in sw-cloudcalendar. */
+.swp-table__actions {
+  white-space: nowrap;
+  text-align: right !important;
+}
+.swp-table__actions .q-btn {
+  color: var(--swp-muted);
+}
+.swp-table__actions .q-btn:hover {
+  color: var(--swp-primary);
+  background: var(--swp-primary-soft);
+}
+.swp-root .swp-table__actions .q-btn.text-negative,
+.swp-root .swp-table__actions .q-btn.text-negative:hover {
+  background: var(--swp-danger-bg) !important;
+}
+.swp-table th:first-child,
+.swp-table td:first-child {
+  padding-left: 18px;
+}
+.swp-table th:last-child,
+.swp-table td:last-child {
+  padding-right: 18px;
+}
+.swp-table thead th {
+  background: var(--swp-surface-2);
+}
+.swp-root .swp-table__actions .q-btn.bg-negative {
+  background: var(--swp-danger-bg) !important;
+  color: var(--swp-danger-text) !important;
+}
+.swp-table td:nth-last-child(2) {
+  white-space: nowrap;
+}
+.swp-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.swp-table-wrap > .swp-table {
+  min-width: 640px;
+}
+.swp-root .swp-table th,
+.swp-root .swp-table td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.swp-root .swp-table th:first-child,
+.swp-root .swp-table td:first-child {
+  padding-left: 16px;
+}
+.swp-root .swp-table th:last-child,
+.swp-root .swp-table td:last-child {
+  padding-right: 12px;
+}
+.swp-table-wrap {
+  border-radius: var(--swp-radius);
+  box-shadow: var(--swp-shadow-1);
+}
+.swp-table-wrap > .swp-table {
+  box-shadow: none;
+  border-radius: var(--swp-radius);
+}
+
+/* Preset cards */
+.swp-preset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.swp-preset__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.swp-preset__head h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+.swp-preset__head .swp-tag {
+  flex: none;
+  margin: 0;
+}
+.swp-preset__text {
+  margin: 0;
+  color: var(--swp-text);
+  font-size: 14px;
+}
+.swp-preset__meta {
+  margin: 0;
+  font-size: 13px;
+}
+.swp-preset__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--swp-border);
+}
+.swp-preset__actions .q-btn:not(.bg-primary) {
+  color: var(--swp-muted);
+}
+.swp-spacer {
+  flex: 1;
+}
+
+.swp-shortcode-cell {
+  white-space: nowrap;
+}
+.swp-shortcode-cell code {
+  margin-right: 4px;
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SW Postlist – dev</title>
+    <script>
+      // Equivalent of what the PHP admin page prints before the module script (dev only).
+      window.swpostlistConfig = {
+        restRoot: location.origin + '/wp-json/sw-postlist/v1/',
+        nonce: 'dev-nonce',
+        locale: new URLSearchParams(location.search).get('lang') === 'en' ? 'en_US' : 'de_DE',
+        version: '0.1.0-dev',
+        adminUrl: location.origin + '/wp-admin/admin.php?page=sw-postlist',
+        siteUrl: location.origin,
+        pluginUrl: location.origin + '/wp-content/plugins/sw-postlist/',
+      };
+    </script>
+  </head>
+  <body>
+    <div id="sw-postlist-app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

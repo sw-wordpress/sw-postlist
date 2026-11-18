@@ -1,0 +1,16 @@
+{
+  "name": "invalid-formatter-parameter-range",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|truncate:0}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_parameter"
+    ]
+  }
+}

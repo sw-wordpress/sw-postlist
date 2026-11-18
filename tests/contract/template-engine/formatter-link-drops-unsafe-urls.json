@@ -1,0 +1,21 @@
+{
+  "name": "formatter-link-drops-unsafe-urls",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.terms.category|link}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.terms.category": [
+        {
+          "label": "A",
+          "url": "javascript:alert(1)"
+        }
+      ]
+    }
+  },
+  "expect": {
+    "html": "A"
+  }
+}

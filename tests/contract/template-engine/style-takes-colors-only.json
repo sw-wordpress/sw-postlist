@@ -1,0 +1,16 @@
+{
+  "name": "style-takes-colors-only",
+  "type": "template-engine",
+  "input": {
+    "template": "<p style=\"color: {{entry.title}}\">x</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "type_not_allowed_in_context"
+    ]
+  }
+}

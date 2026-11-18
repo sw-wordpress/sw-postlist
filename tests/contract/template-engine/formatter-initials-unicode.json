@@ -1,0 +1,16 @@
+{
+  "name": "formatter-initials-unicode",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|initials}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.title": "\u00d6mer \u00c7elik"
+    }
+  },
+  "expect": {
+    "html": "\u00d6\u00c7"
+  }
+}

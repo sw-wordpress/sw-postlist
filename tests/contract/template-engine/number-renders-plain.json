@@ -1,0 +1,16 @@
+{
+  "name": "number-renders-plain",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>{{entry.price}}</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.price": 12.5
+    }
+  },
+  "expect": {
+    "html": "<p>12.5</p>"
+  }
+}

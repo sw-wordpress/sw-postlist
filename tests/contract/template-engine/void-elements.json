@@ -1,0 +1,14 @@
+{
+  "name": "void-elements",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>a<br>b<hr></p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "<p>a<br>b<hr></p>"
+  }
+}

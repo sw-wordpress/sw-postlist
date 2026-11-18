@@ -1,0 +1,14 @@
+{
+  "name": "target-blank-keeps-existing-rel",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"/x\" rel=\"nofollow\" target=\"_blank\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "<a href=\"/x\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">x</a>"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "duplicate-attribute",
+  "type": "template-engine",
+  "input": {
+    "template": "<p class=\"a\" class=\"b\">x</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "duplicate_attribute"
+    ]
+  }
+}

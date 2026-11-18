@@ -1,0 +1,16 @@
+{
+  "name": "unclosed-section",
+  "type": "template-engine",
+  "input": {
+    "template": "{{#entry.featured}}x",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unclosed_section"
+    ]
+  }
+}

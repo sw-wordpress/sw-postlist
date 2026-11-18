@@ -1,0 +1,17 @@
+{
+  "name": "section-opens-before-closing-tag",
+  "type": "template-engine",
+  "input": {
+    "template": "<div>{{#entry.featured}}</div>{{/entry.featured}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "section_crosses_element",
+      "unclosed_element"
+    ]
+  }
+}

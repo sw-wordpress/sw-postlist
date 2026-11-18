@@ -1,0 +1,16 @@
+{
+  "name": "cc-target-javascript",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"/\" target=\"javascript:x\">a</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_attribute_value"
+    ]
+  }
+}

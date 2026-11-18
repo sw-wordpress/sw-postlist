@@ -1,0 +1,16 @@
+{
+  "name": "cc-data-url",
+  "type": "template-engine",
+  "input": {
+    "template": "<img src=\"data:image/svg+xml;base64,AAA\">",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unsafe_url"
+    ]
+  }
+}

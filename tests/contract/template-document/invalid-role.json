@@ -1,0 +1,16 @@
+{
+  "name": "template-invalid-role",
+  "type": "template-document",
+  "input": {
+    "schema_version": 1,
+    "title": "Card",
+    "role": "page",
+    "html": "<article>{{entry.title}}</article>",
+    "css": ".a{color:red}"
+  },
+  "expect": {
+    "errors": [
+      "role_invalid"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "section-false-and-inverted",
+  "type": "template-engine",
+  "input": {
+    "template": "{{#entry.featured}}Yes{{/entry.featured}}{{^entry.featured}}No{{/entry.featured}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.featured": false
+    }
+  },
+  "expect": {
+    "html": "No"
+  }
+}

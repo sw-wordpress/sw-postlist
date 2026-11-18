@@ -1,0 +1,16 @@
+{
+  "name": "formatter-nl2br-escapes-text",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>{{entry.excerpt|nl2br}}</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.excerpt": "a <b>\nc"
+    }
+  },
+  "expect": {
+    "html": "<p>a &lt;b&gt;<br>\nc</p>"
+  }
+}

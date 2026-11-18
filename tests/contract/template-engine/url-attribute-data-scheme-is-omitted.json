@@ -1,0 +1,16 @@
+{
+  "name": "url-attribute-data-scheme-is-omitted",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"{{entry.url}}\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.url": "data:text/html,<script>alert(1)</script>"
+    }
+  },
+  "expect": {
+    "html": "<a>x</a>"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "formatter-chips-extra-class-is-sanitized",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.terms.category|chips:\"green x\\\"><script\"}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.terms.category": [
+        {
+          "label": "Team",
+          "url": null
+        }
+      ]
+    }
+  },
+  "expect": {
+    "html": "<span class=\"swp-chip green xscript\">Team</span>"
+  }
+}

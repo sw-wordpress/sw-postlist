@@ -1,0 +1,16 @@
+{
+  "name": "css-declarations-outside-rule",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>x</p>",
+    "css": "color:red",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_css"
+    ]
+  }
+}

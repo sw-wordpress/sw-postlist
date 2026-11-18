@@ -1,0 +1,16 @@
+{
+  "name": "script-element-is-rejected",
+  "type": "template-engine",
+  "input": {
+    "template": "<script>alert(1)</script>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "disallowed_tag"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/sw-postlist/template-document.v1.schema.json",
+  "title": "SW Postlist template document, schema version 1",
+  "type": "object",
+  "required": ["schema_version", "title", "role", "html"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": 1 },
+    "title": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "role": { "enum": ["container", "entry"] },
+    "html": { "type": "string", "maxLength": 200000 },
+    "css": { "type": "string", "maxLength": 100000 }
+  }
+}

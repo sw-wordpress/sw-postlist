@@ -1,0 +1,14 @@
+{
+  "name": "static-relative-and-https-urls",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"/about\">a</a><a href=\"https://x.test/p?a=1&amp;b=2\">b</a><a href=\"#top\">c</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "<a href=\"/about\">a</a><a href=\"https://x.test/p?a=1&amp;b=2\">b</a><a href=\"#top\">c</a>"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "date-badge-list",
+  "title": "Date badge list",
+  "description": "A list with a coloured date badge, headline and short excerpt.",
+  "layout": {
+    "type": "list",
+    "gap": {
+      "desktop": 16,
+      "tablet": 16,
+      "mobile": 12
+    },
+    "accent": "primary"
+  },
+  "container": {
+    "html": "<div class=\"badges\">{{view.entries}}{{view.navigation}}</div>",
+    "css": ""
+  },
+  "entry": {
+    "html": "<article class=\"badge-row\">\n  <time class=\"badge\" datetime='{{entry.date|date:\"c\"}}'><strong>{{entry.date|date:\"d\"}}</strong><span>{{entry.date|date:\"M\"}}</span></time>\n  <div><h3 class=\"badge-row__title\"><a href=\"{{entry.url}}\">{{entry.title}}</a></h3>{{#entry.excerpt}}<p>{{entry.excerpt|words:20}}</p>{{/entry.excerpt}}</div>\n</article>",
+    "css": ".badge-row{display:flex;gap:1em;align-items:flex-start}\n.badge{flex:none;display:flex;flex-direction:column;align-items:center;min-width:3.5em;padding:.4em .6em;border-radius:6px;background:var(--swp-accent,#2271b1);color:#fff;line-height:1.1}\n.badge strong{font-size:1.4em}\n.badge span{font-size:.75em;text-transform:uppercase}\n.badge-row__title{margin:0 0 .25em}\n.badge-row__title a{color:inherit;text-decoration:none}"
+  },
+  "builder": null
+}

@@ -1,0 +1,14 @@
+{
+  "name": "url-attribute-empty-is-omitted",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"{{entry.url}}\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "<a>x</a>"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "void-end-tag",
+  "type": "template-engine",
+  "input": {
+    "template": "<br></br>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "void_end_tag"
+    ]
+  }
+}

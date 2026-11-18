@@ -1,0 +1,16 @@
+{
+  "name": "formatter-strip-tags-decodes-entities",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.excerpt|strip_tags}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.excerpt": "<i>Tom &amp; Jerry &lt;3</i>"
+    }
+  },
+  "expect": {
+    "html": "Tom &amp; Jerry &lt;3"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "style-invalid-color-value-is-empty",
+  "type": "template-engine",
+  "input": {
+    "template": "<div style=\"color: {{entry.color}}\">x</div>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.color": "red; background:url(x)"
+    }
+  },
+  "expect": {
+    "html": "<div style=\"color: \">x</div>"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "compact-list",
+  "title": "Compact list",
+  "description": "A dense list of titles with the date, ideal for sidebars.",
+  "layout": {
+    "type": "list",
+    "gap": {
+      "desktop": 8,
+      "tablet": 8,
+      "mobile": 8
+    }
+  },
+  "container": {
+    "html": "<ul class=\"compact\">{{view.entries}}</ul>\n{{view.navigation}}",
+    "css": ".compact{margin:0;padding:0;list-style:none}"
+  },
+  "entry": {
+    "html": "<article class=\"row\"><time class=\"row__date\" datetime='{{entry.date|date:\"c\"}}'>{{entry.date|date:\"d.m.\"}}</time> <a class=\"row__title\" href=\"{{entry.url}}\">{{entry.title|truncate:70}}</a></article>",
+    "css": ".row{display:flex;gap:.75em;align-items:baseline}\n.row__date{flex:none;font-variant-numeric:tabular-nums;opacity:.7}\n.row__title{color:inherit}"
+  },
+  "builder": null
+}

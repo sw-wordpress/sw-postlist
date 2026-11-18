@@ -1,0 +1,16 @@
+{
+  "name": "invalid-formatter-literal",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|truncate:five}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_parameter"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "text-is-escaped",
+  "type": "template-engine",
+  "input": {
+    "template": "<p>{{entry.title}}</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.title": "A <b>&</b> B"
+    }
+  },
+  "expect": {
+    "html": "<p>A &lt;b&gt;&amp;&lt;/b&gt; B</p>"
+  }
+}

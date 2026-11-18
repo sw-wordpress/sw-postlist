@@ -1,0 +1,16 @@
+{
+  "name": "section-number-zero-is-false",
+  "type": "template-engine",
+  "input": {
+    "template": "{{#entry.price}}paid{{/entry.price}}{{^entry.price}}free{{/entry.price}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.price": 0
+    }
+  },
+  "expect": {
+    "html": "free"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "container-placeholders",
+  "type": "template-engine",
+  "input": {
+    "template": "<ul>{{view.entries}}</ul><p>{{view.count}}</p>",
+    "css": "",
+    "role": "container",
+    "profile": "postlist",
+    "data": {
+      "view.entries": {
+        "html": "<li>e</li>"
+      },
+      "view.count": 3
+    }
+  },
+  "expect": {
+    "html": "<ul><li>e</li></ul><p>3</p>"
+  }
+}

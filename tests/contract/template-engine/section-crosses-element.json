@@ -1,0 +1,17 @@
+{
+  "name": "section-crosses-element",
+  "type": "template-engine",
+  "input": {
+    "template": "{{#entry.featured}}<div>{{/entry.featured}}</div>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "section_crosses_element",
+      "unclosed_section"
+    ]
+  }
+}

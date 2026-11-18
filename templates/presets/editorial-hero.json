@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "editorial-hero",
+  "title": "Editorial hero",
+  "description": "The first entry is a wide hero (image left, large serif headline), the following ones form a four column row. The position based layout comes from :first-child in the container CSS.",
+  "layout": {
+    "type": "grid",
+    "columns": {
+      "desktop": 4,
+      "tablet": 2,
+      "mobile": 1
+    },
+    "gap": {
+      "desktop": 28,
+      "tablet": 24,
+      "mobile": 24
+    },
+    "aspect_ratio": "4/3"
+  },
+  "container": {
+    "html": "<section class=\"ed\"><div class=\"swp-grid\">{{view.entries}}</div>{{view.navigation}}</section>",
+    "css": ".ed{container-type:inline-size}.ed .swp-item:first-child{grid-column:1/-1;padding-bottom:28px;border-bottom:1px solid #cfcabd}.ed .swp-item:first-child .ed-card{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:36px;align-items:center}.ed .swp-item:first-child .ed-card__title{font-size:clamp(1.8em,3.4vw,3em);line-height:1.08}.ed .swp-item:first-child .ed-card__media img,.ed .swp-item:first-child .ed-card__media--ph{aspect-ratio:4/3}.ed .swp-item:first-child .ed-card__text{font-size:1.05em}.ed .swp-item:nth-child(4n+2) .ed-card__kicker{color:#a1362b}.ed .swp-item:nth-child(4n+3) .ed-card__kicker{color:#7a4a21}.ed .swp-item:nth-child(4n+4) .ed-card__kicker{color:#3a5e46}.ed .swp-item:nth-child(4n+5) .ed-card__kicker{color:#2f4f80}@container (max-width:900px){.ed .swp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@container (max-width:700px){.ed .swp-item:first-child .ed-card{grid-template-columns:minmax(0,1fr);gap:18px}}@container (max-width:520px){.ed .swp-grid{grid-template-columns:minmax(0,1fr)}}"
+  },
+  "entry": {
+    "html": "<article class=\"ed-card\">{{#entry.image}}<a class=\"ed-card__media\" href=\"{{entry.url}}\">{{entry.image|image:\"large\"}}</a>{{/entry.image}}{{^entry.image}}<a class=\"ed-card__media ed-card__media--ph\" href=\"{{entry.url}}\" aria-hidden=\"true\" tabindex=\"-1\"></a>{{/entry.image}}<div class=\"ed-card__body\">{{#entry.terms.category}}<p class=\"ed-card__kicker\">{{entry.terms.category|join:\" · \"}}</p>{{/entry.terms.category}}<h3 class=\"ed-card__title\"><a href=\"{{entry.url}}\">{{entry.title}}</a></h3>{{#entry.excerpt}}<p class=\"ed-card__text\">{{entry.excerpt|words:28}}</p>{{/entry.excerpt}}<p class=\"ed-card__by\">Von <strong>{{entry.author.name}}</strong> · {{entry.date|date:\"j. F Y\"}}</p></div></article>",
+    "css": ".ed-card{overflow-wrap:anywhere;font-family:Georgia,\"Iowan Old Style\",\"Times New Roman\",serif;color:#1b1a17}.ed-card__media{display:block}.ed-card__media img{display:block;width:100%;height:auto;aspect-ratio:var(--swp-aspect,4/3);object-fit:cover}.ed-card__media--ph{aspect-ratio:4/3;background:radial-gradient(circle at 70% 18%,#161616 0 30%,transparent 31%),linear-gradient(#ebe6da,#ebe6da)}.ed-card__kicker{margin:14px 0 6px;font:700 .7em system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase}.ed-card__title{margin:0 0 8px;font-size:1.25em;line-height:1.2;font-weight:700}.ed-card__title a{color:inherit;text-decoration:none}.ed-card__text{margin:0 0 10px;font-size:.92em;line-height:1.5;color:#46433b}.ed-card__by{margin:0;font:.78em system-ui,sans-serif;color:#6b675c}.ed-card__by strong{color:#1b1a17}"
+  },
+  "builder": null
+}

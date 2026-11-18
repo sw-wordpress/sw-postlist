@@ -1,0 +1,24 @@
+{
+  "name": "formatter-link",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.terms.category|link}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.terms.category": [
+        {
+          "label": "A",
+          "url": "https://x.test/a"
+        },
+        {
+          "label": "B"
+        }
+      ]
+    }
+  },
+  "expect": {
+    "html": "<a href=\"https://x.test/a\">A</a>, B"
+  }
+}

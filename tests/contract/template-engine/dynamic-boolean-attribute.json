@@ -1,0 +1,16 @@
+{
+  "name": "dynamic-boolean-attribute",
+  "type": "template-engine",
+  "input": {
+    "template": "<div hidden=\"{{entry.title}}\">x</div>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "boolean_attribute_dynamic"
+    ]
+  }
+}

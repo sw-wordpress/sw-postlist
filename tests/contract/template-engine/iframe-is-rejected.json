@@ -1,0 +1,16 @@
+{
+  "name": "iframe-is-rejected",
+  "type": "template-engine",
+  "input": {
+    "template": "<iframe src=\"/x\"></iframe>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "disallowed_tag"
+    ]
+  }
+}

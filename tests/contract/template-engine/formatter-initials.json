@@ -1,0 +1,16 @@
+{
+  "name": "formatter-initials",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|initials}}|{{entry.title|initials:3}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.title": "anna-maria von Keller"
+    }
+  },
+  "expect": {
+    "html": "AM|AMV"
+  }
+}

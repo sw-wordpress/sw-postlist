@@ -1,0 +1,16 @@
+{
+  "name": "template-invalid-title",
+  "type": "template-document",
+  "input": {
+    "schema_version": 1,
+    "title": "",
+    "role": "entry",
+    "html": "<article>{{entry.title}}</article>",
+    "css": ".a{color:red}"
+  },
+  "expect": {
+    "errors": [
+      "title_invalid"
+    ]
+  }
+}

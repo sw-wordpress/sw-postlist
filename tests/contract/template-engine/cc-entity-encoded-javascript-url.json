@@ -1,0 +1,16 @@
+{
+  "name": "cc-entity-encoded-javascript-url",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"&#106;avascript:alert(1)\">a</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unsafe_url"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<phpunit bootstrap="bootstrap.php" colors="true" convertDeprecationsToExceptions="false">
+    <testsuites>
+        <testsuite name="wordpress">
+            <directory suffix="Test.php">tests</directory>
+        </testsuite>
+    </testsuites>
+    <coverage>
+        <include>
+            <directory suffix=".php">../../src</directory>
+            <directory suffix=".php">../../blocks</directory>
+            <file>../../sw-postlist.php</file>
+            <file>../../uninstall.php</file>
+        </include>
+    </coverage>
+</phpunit>

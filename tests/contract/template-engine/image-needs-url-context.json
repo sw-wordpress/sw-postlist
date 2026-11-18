@@ -1,0 +1,16 @@
+{
+  "name": "image-needs-url-context",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.image}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "type_not_allowed_in_context"
+    ]
+  }
+}

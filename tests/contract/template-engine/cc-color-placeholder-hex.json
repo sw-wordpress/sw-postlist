@@ -1,0 +1,16 @@
+{
+  "name": "cc-color-placeholder-hex",
+  "type": "template-engine",
+  "input": {
+    "template": "<span style=\"border-color: {{entry.color}}\">x</span>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {
+      "entry.color": "#aabbcc"
+    }
+  },
+  "expect": {
+    "html": "<span style=\"border-color: #aabbcc\">x</span>"
+  }
+}

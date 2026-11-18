@@ -1,0 +1,16 @@
+{
+  "name": "url-attribute-placeholder",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"{{entry.url}}\">x</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.url": "https://example.com/?a=1&b=2"
+    }
+  },
+  "expect": {
+    "html": "<a href=\"https://example.com/?a=1&amp;b=2\">x</a>"
+  }
+}

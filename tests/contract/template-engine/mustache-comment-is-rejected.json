@@ -1,0 +1,16 @@
+{
+  "name": "mustache-comment-is-rejected",
+  "type": "template-engine",
+  "input": {
+    "template": "{{! note }}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "unsupported_syntax"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "cc-text-placeholder-in-href",
+  "type": "template-engine",
+  "input": {
+    "template": "<a href=\"{{entry.title}}\">a</a>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "type_not_allowed_in_context"
+    ]
+  }
+}

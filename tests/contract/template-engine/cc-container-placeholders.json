@@ -1,0 +1,18 @@
+{
+  "name": "cc-container-placeholders",
+  "type": "template-engine",
+  "input": {
+    "template": "<div class=\"list\">{{view.entries}}</div>",
+    "css": "",
+    "role": "container",
+    "profile": "cloudcalendar",
+    "data": {
+      "view.entries": {
+        "html": "<ul></ul>"
+      }
+    }
+  },
+  "expect": {
+    "html": "<div class=\"list\"><ul></ul></div>"
+  }
+}

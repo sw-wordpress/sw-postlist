@@ -1,0 +1,16 @@
+{
+  "name": "unclosed-formatter-string",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|default:\"x}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_formatter_syntax"
+    ]
+  }
+}

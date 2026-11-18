@@ -1,0 +1,16 @@
+{
+  "name": "view-title-in-both-roles",
+  "type": "template-engine",
+  "input": {
+    "template": "{{view.title}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "view.title": "T & U"
+    }
+  },
+  "expect": {
+    "html": "T &amp; U"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "formatters-disabled-in-calendar-profile",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.title|upper}}",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "formatters_disabled"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "image-in-src",
+  "type": "template-engine",
+  "input": {
+    "template": "<img src=\"{{entry.image}}\" alt=\"\">",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.image": {
+        "url": "https://x.test/i.jpg"
+      }
+    }
+  },
+  "expect": {
+    "html": "<img src=\"https://x.test/i.jpg\" alt=\"\">"
+  }
+}

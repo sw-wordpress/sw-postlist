@@ -1,0 +1,84 @@
+{
+  "name": "invalid-filter-display",
+  "type": "view-document",
+  "input": {
+    "schema_version": 1,
+    "title": "News",
+    "source": "post:post",
+    "query": {
+      "taxonomies": [
+        {
+          "taxonomy": "category",
+          "terms": [
+            3,
+            4
+          ],
+          "operator": "in"
+        }
+      ],
+      "authors": [
+        2
+      ],
+      "date": {
+        "after": "2026-01-01",
+        "before": null
+      },
+      "meta": [
+        {
+          "key": "featured",
+          "value": "1",
+          "compare": "="
+        }
+      ],
+      "include": [],
+      "exclude": [
+        9
+      ],
+      "per_page": 10,
+      "offset": 1,
+      "orderby": "meta_num",
+      "order": "asc",
+      "order_meta_key": "rank",
+      "context": "none"
+    },
+    "layout": {
+      "type": "grid",
+      "columns": {
+        "desktop": 4,
+        "tablet": 2,
+        "mobile": 1
+      },
+      "gap": {
+        "desktop": 24,
+        "mobile": 8
+      },
+      "aspect_ratio": "16/9",
+      "font_size": {
+        "tablet": 90
+      },
+      "hidden": {
+        "mobile": true
+      },
+      "accent": "primary"
+    },
+    "pagination": {
+      "mode": "classic"
+    },
+    "templates": {
+      "container": null,
+      "entry": 5
+    },
+    "filters": [
+      {
+        "type": "taxonomy",
+        "taxonomy": "category",
+        "display": "radio"
+      }
+    ]
+  },
+  "expect": {
+    "errors": [
+      "filter_option_invalid"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "formatter-default-keeps-value",
+  "type": "template-engine",
+  "input": {
+    "template": "{{entry.excerpt|default:\"n/a\"}}",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {
+      "entry.excerpt": "given"
+    }
+  },
+  "expect": {
+    "html": "given"
+  }
+}

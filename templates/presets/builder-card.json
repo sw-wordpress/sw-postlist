@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "builder-card",
+  "title": "Builder card",
+  "description": "A card built with the visual builder: image, categories, headline, author and date, excerpt.",
+  "layout": {
+    "type": "grid",
+    "columns": {
+      "desktop": 3,
+      "tablet": 2,
+      "mobile": 1
+    },
+    "gap": {
+      "desktop": 24,
+      "tablet": 16,
+      "mobile": 12
+    },
+    "aspect_ratio": "3/2"
+  },
+  "container": {
+    "html": "<div class=\"builder-cards\">{{view.entries}}</div>\n{{view.navigation}}",
+    "css": ""
+  },
+  "entry": {
+    "html": "<article class=\"swp-b swp-b-n1\" data-swp-builder=\"eyJ2ZXJzaW9uIjoxLCJyb290Ijp7InR5cGUiOiJjb250YWluZXIiLCJkaXJlY3Rpb24iOiJjb2x1bW4iLCJnYXAiOjgsInBhZGRpbmciOjAsImJhY2tncm91bmQiOiIiLCJjaGlsZHJlbiI6W3sidHlwZSI6ImltYWdlIiwic2l6ZSI6Im1lZGl1bV9sYXJnZSIsImxpbmsiOnRydWV9LHsidHlwZSI6ImNvbnRhaW5lciIsImRpcmVjdGlvbiI6ImNvbHVtbiIsImdhcCI6OCwicGFkZGluZyI6MTQsImJhY2tncm91bmQiOiIiLCJjaGlsZHJlbiI6W3sidHlwZSI6InRheG9ub215IiwidGF4b25vbXkiOiJjYXRlZ29yeSIsImxpbmtzIjp0cnVlLCJzZXBhcmF0b3IiOiIsICJ9LHsidHlwZSI6InRpdGxlIiwidGFnIjoiaDMiLCJsaW5rIjp0cnVlfSx7InR5cGUiOiJjb250YWluZXIiLCJkaXJlY3Rpb24iOiJyb3ciLCJnYXAiOjEyLCJwYWRkaW5nIjowLCJiYWNrZ3JvdW5kIjoiIiwiY2hpbGRyZW4iOlt7InR5cGUiOiJhdXRob3IiLCJsaW5rIjpmYWxzZX0seyJ0eXBlIjoiZGF0ZSIsImZvcm1hdCI6ImQubS5ZIiwicmVsYXRpdmUiOmZhbHNlfV19LHsidHlwZSI6ImV4Y2VycHQiLCJ3b3JkcyI6MzB9LHsidHlwZSI6InJlYWRtb3JlIiwibGFiZWwiOiJSZWFkIG1vcmUifV19XX19\">{{#entry.image}}<a class=\"swp-b-image\" href=\"{{entry.url}}\">{{entry.image|image:\"medium_large\"}}</a>{{/entry.image}}<div class=\"swp-b-box swp-b-n2\">{{#entry.terms.category}}<p class=\"swp-b-terms\">{{entry.terms.category|link:\", \"}}</p>{{/entry.terms.category}}<h3 class=\"swp-b-title\"><a href=\"{{entry.url}}\">{{entry.title}}</a></h3><div class=\"swp-b-box swp-b-n3\"><span class=\"swp-b-author\">{{entry.author.name}}</span><time class=\"swp-b-date\" datetime='{{entry.date|date:\"c\"}}'>{{entry.date|date:\"d.m.Y\"}}</time></div>{{#entry.excerpt}}<p class=\"swp-b-excerpt\">{{entry.excerpt|words:30}}</p>{{/entry.excerpt}}<a class=\"swp-b-more\" href=\"{{entry.url}}\">Read more</a></div></article>",
+    "css": ".swp-b img{display:block;max-width:100%;height:auto}\n.swp-b-title{margin:0}\n.swp-b p{margin:0}\n.swp-b-n1{display:flex;flex-direction:column;gap:8px;padding:0px;}\n.swp-b-n2{display:flex;flex-direction:column;gap:8px;padding:14px;}\n.swp-b-n3{display:flex;flex-direction:row;gap:12px;padding:0px;}"
+  },
+  "builder": {
+    "version": 1,
+    "root": {
+      "type": "container",
+      "direction": "column",
+      "gap": 8,
+      "padding": 0,
+      "background": "",
+      "children": [
+        {
+          "type": "image",
+          "size": "medium_large",
+          "link": true
+        },
+        {
+          "type": "container",
+          "direction": "column",
+          "gap": 8,
+          "padding": 14,
+          "background": "",
+          "children": [
+            {
+              "type": "taxonomy",
+              "taxonomy": "category",
+              "links": true,
+              "separator": ", "
+            },
+            {
+              "type": "title",
+              "tag": "h3",
+              "link": true
+            },
+            {
+              "type": "container",
+              "direction": "row",
+              "gap": 12,
+              "padding": 0,
+              "background": "",
+              "children": [
+                {
+                  "type": "author",
+                  "link": false
+                },
+                {
+                  "type": "date",
+                  "format": "d.m.Y",
+                  "relative": false
+                }
+              ]
+            },
+            {
+              "type": "excerpt",
+              "words": 30
+            },
+            {
+              "type": "readmore",
+              "label": "Read more"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

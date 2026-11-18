@@ -1,0 +1,16 @@
+{
+  "name": "cc-stray-closing-tag",
+  "type": "template-engine",
+  "input": {
+    "template": "</div>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "mismatched_end_tag"
+    ]
+  }
+}

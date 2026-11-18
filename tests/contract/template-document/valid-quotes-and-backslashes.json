@@ -1,0 +1,14 @@
+{
+  "name": "template-valid-quotes-and-backslashes",
+  "type": "template-document",
+  "input": {
+    "schema_version": 1,
+    "title": "Card",
+    "role": "entry",
+    "html": "<a href=\"x\" title='it\\'s'>C:\\\\path {{entry.title}}</a>",
+    "css": ".a{color:red}"
+  },
+  "expect": {
+    "valid": true
+  }
+}

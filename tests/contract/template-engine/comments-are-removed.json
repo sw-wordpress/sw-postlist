@@ -1,0 +1,14 @@
+{
+  "name": "comments-are-removed",
+  "type": "template-engine",
+  "input": {
+    "template": "a<!-- hidden <script> -->b",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "html": "ab"
+  }
+}

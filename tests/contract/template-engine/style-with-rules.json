@@ -1,0 +1,16 @@
+{
+  "name": "style-with-rules",
+  "type": "template-engine",
+  "input": {
+    "template": "<p style=\"} body { color: red\">x</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "postlist",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "invalid_style"
+    ]
+  }
+}

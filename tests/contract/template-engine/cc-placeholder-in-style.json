@@ -1,0 +1,16 @@
+{
+  "name": "cc-placeholder-in-style",
+  "type": "template-engine",
+  "input": {
+    "template": "<p style=\"color: {{entry.title}}\">a</p>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "type_not_allowed_in_context"
+    ]
+  }
+}

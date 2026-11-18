@@ -1,0 +1,139 @@
+name: Tests and SonarQube
+on:
+  pull_request: null
+permissions:
+  contents: read
+jobs:
+  php:
+    runs-on: ubuntu-latest
+    env:
+      XDEBUG_MODE: coverage
+      SWP_TEST_DB_HOST: 127.0.0.1
+      SWP_TEST_DB_PORT: '33079'
+      SWP_TEST_DB_USER: root
+      SWP_TEST_DB_PASSWORD: wordpress-test
+    steps:
+    - uses: actions/checkout@v7
+    - uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: mysqli, pdo_mysql, mbstring, zip, gd
+        tools: composer:v2
+        coverage: xdebug
+    - run: composer install --prefer-dist --no-interaction --no-progress
+    - run: composer validate --strict
+    - name: Audit shipped Composer packages
+      run: composer audit --locked --no-dev
+    - run: composer cs && composer stan
+    - name: Install isolated WordPress test dependencies
+      run: composer install --working-dir=tests/wp --prefer-dist --no-interaction --no-progress
+    - name: Unit and integration coverage
+      run: |-
+        mkdir -p coverage
+        vendor/bin/phpunit --testsuite unit,integration --coverage-clover coverage/unit.xml
+    - name: WordPress coverage
+      working-directory: tests/wp
+      run: vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover ../../coverage/wp.xml
+    - name: Multisite coverage
+      working-directory: tests/wp
+      env:
+        WP_TESTS_MULTISITE: '1'
+      run: vendor/bin/phpunit -c phpunit.xml.dist --group ms-required --coverage-clover ../../coverage/wp-ms.xml
+    - name: WordPress 6.5 (minimum version) suite
+      run: |
+        COMPOSER=composer-65.json composer install --working-dir=tests/wp --prefer-dist --no-interaction --no-progress
+        composer test:wp65
+    - name: Merge and normalize Clover paths
+      run: php tests/coverage/merge.php coverage/unit.xml coverage/wp.xml coverage/wp-ms.xml
+    - name: Upload Clover coverage
+      uses: actions/upload-artifact@v7
+      with:
+        name: php-coverage
+        path: coverage/clover.xml
+        if-no-files-found: error
+        retention-days: 14
+    - name: Strict PHP line coverage gate (> 80 %)
+      run: php tests/coverage/check.php coverage/clover.xml
+    - name: Translations
+      run: |
+        sudo apt-get update && sudo apt-get install -y gettext
+        bin/i18n.sh check
+    services:
+      mariadb:
+        image: mariadb:11.4
+        env:
+          MARIADB_ROOT_PASSWORD: wordpress-test
+          MARIADB_ROOT_HOST: '%'
+          MARIADB_DATABASE: swp_wp_tests
+        ports:
+        - 33079:3306
+        options: --health-cmd="healthcheck.sh --connect --innodb_initialized" --health-interval=5s --health-timeout=5s --health-retries=20
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/admin
+    steps:
+    - uses: actions/checkout@v7
+    - uses: actions/setup-node@v7
+      with:
+        node-version-file: apps/admin/.nvmrc
+        cache: npm
+        cache-dependency-path: apps/admin/package-lock.json
+    - run: npm ci
+    - name: Audit npm packages including dev tooling
+      run: npm audit --audit-level=high
+    - run: npm run lint && npm run typecheck && npm run format:check
+    - name: Tests with strict JS/TS line coverage gate (> 80 %)
+      run: npm run test:coverage
+    - run: npm run build
+    - name: Upload frontend LCOV coverage
+      uses: actions/upload-artifact@v7
+      with:
+        name: frontend-coverage
+        path: apps/admin/coverage/lcov.info
+        if-no-files-found: error
+        retention-days: 14
+  sonarqube:
+    name: SonarQube Cloud
+    needs:
+    - php
+    - frontend
+    if: |-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.login != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        fetch-depth: 0
+    - uses: actions/download-artifact@v8
+      with:
+        name: php-coverage
+        path: coverage
+    - uses: actions/download-artifact@v8
+      with:
+        name: frontend-coverage
+        path: coverage/frontend
+    - name: Check SonarQube configuration
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_ORGANIZATION: ${{ vars.SONAR_ORGANIZATION }}
+      run: |
+        if [ -z "$SONAR_TOKEN" ]; then
+          echo '::error::Set the SONAR_TOKEN repository secret before running SonarQube analysis.'
+          exit 1
+        fi
+        if [ -z "$SONAR_ORGANIZATION" ]; then
+          echo '::error::Set the SONAR_ORGANIZATION repository variable to your SonarQube Cloud organization key.'
+          exit 1
+        fi
+        test -s coverage/clover.xml
+        test -s coverage/frontend/lcov.info
+    - name: Analyze code and import coverage
+      uses: SonarSource/sonarqube-scan-action@59202af334b4ba7b5db01b701b8e79f8b3bef0f4
+      with:
+        args: -Dsonar.organization=${{ vars.SONAR_ORGANIZATION }}
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

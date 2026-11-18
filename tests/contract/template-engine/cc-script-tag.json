@@ -1,0 +1,16 @@
+{
+  "name": "cc-script-tag",
+  "type": "template-engine",
+  "input": {
+    "template": "<script>alert(1)</script>",
+    "css": "",
+    "role": "entry",
+    "profile": "cloudcalendar",
+    "data": {}
+  },
+  "expect": {
+    "errors": [
+      "disallowed_tag"
+    ]
+  }
+}
